@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form과 form 요소</title>
+</head>
+<body>
+    <h1>폼 관련 태그를 알아보자!</h1>
+
+    <!-- form 태그
+    - action 속성: 사용자가 폼에 입력한 값을 전달할 주소
+    - method 속성: 사용자가 폼에 입력한 값을 전달할 방법
+
+    form은 화면에 드러나지 않는 추상적인 태그(양식)
+-->
+
+    <form>
+        <!-- form 요소: 폼 태그 안에 있는 사용자의 입력값을 받는 요소
+                input, textarea,  -->
+        <!--  input 태그
+            - dissbled 속성: 편집을 불가능하도록 막음.
+            - placeholder 속성: -->
+        text <input type="text" name="">
+        text2 <input type="text" disabled><br>
+
+        <!-- label 태그의 for 속성값과 -->
+        <label for="user-email">이메일</label>
+        <input type="email" name="" id="user-email" placeholder="abc@test.com">
+        
+        <input type="color"> <br>
+        <input type="range"> <br>
+        <input type="file"> <br>
+        <input type="number"> <br>
+        <input type="date"> <br>
+        <input type="datetime-local"> <br>
+        <input type="password">
+
+    <!-- radio input vs checkbox input -->
+    <!-- radio input,  checkbox input: 같은 name 속성값을 부여해서 "카테고리화"해줘야 함. -->
+        <h5>당신의 취미는 무엇인가요?</h5>
+        <input type="checkbox" name="interest" value="diary" checked>다꾸
+        <input type="checkbox" name="interest" value="movie">영화
+        <input type="checkbox" name="interest" value="game">게임
+
+        <h5>당신의 성별은 무엇인가요?</h5>
+        <input type="radio" name="gender" value="femele" id="femele"><label for="femele">여자</label>
+        <input type="radio" name="gender" value="mele" id="mele"><label for="mele">남자</label> <br>
+
+        <!-- -->
+        <textarea placeholder="문의사항을 입력해 주세요."
+        cols="30" rows="10"></textarea><br>
+        <!-- cols -> 열 rows -> 행 -->
+
+        <!-- select 태그: -->
+        <select name="flowers"></select>
+        <optgroup> label="red-fiower"</optgroup>
+        <option value="장미">장미</option>
+
+
+        <!-- 버튼
+        1.input 태그의
+        2.  -->
+
+
+    <input type="button" value="단순 버튼1">
+    <button type="button">단순 버튼2</button>
+    <br>
+
+    <input type="submit" value="제출 버튼1">
+    <button type="submit">제출 버튼2</button>
+
+
+
+    <button>버튼1</button>
+</form>
+<button>버튼2</button> 
+</body>
+</html>
