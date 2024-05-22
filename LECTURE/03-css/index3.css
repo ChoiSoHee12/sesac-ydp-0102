@@ -1,0 +1,27 @@
+body section {
+    border: 1px; 
+}
+
+body section h2 {
+    border: 1px;
+}
+
+
+
+/* 1. 색상 키워드 : */
+
+
+p.lion {
+    background-color: red;
+}
+div p.lion {
+    background-color: yellowgreen;
+}
+
+#tiger {
+    background-color: yellow;
+}
+.lion {
+    color: sienna;
+ } 
+ 
