@@ -77,7 +77,7 @@ h3:hover {
     background-color: black;
 }
 
-textarea:hover {
+textarea:focus {
     background-color: rgb(255, 234, 238);
 }
 
@@ -92,4 +92,8 @@ input#blue:active + label {
 input#yellow:active + label 
 {
     background-color: yellow;
+}
+button:active {
+    background-color: rgb(255, 105, 105);
+    color: white;
 }
