@@ -50,4 +50,46 @@ input:focus {
 
 .stripes > * {
     background-color: navy;
+    color: white;
+}
+
+
+.box::before {
+    content: "택시"
+}
+
+.box::after {
+    content: "빨리"
+}
+
+/*/ 가상 요소 가상 클래스 */
+
+[disabled] {
+    background-color: red;
+}
+
+[placeholder="이름"] {
+    background-color: orange;
+}
+
+h3:hover {
+    color: white;
+    background-color: black;
+}
+
+textarea:hover {
+    background-color: rgb(255, 234, 238);
+}
+
+input#red:active + label {
+    background-color: red;
+}
+
+input#blue:active + label {
+    background-color: blue;
+}
+
+input#yellow:active + label 
+{
+    background-color: yellow;
 }
