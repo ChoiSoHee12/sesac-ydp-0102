@@ -7,6 +7,11 @@
 </head>
 <body>
     <h1>테이블 태그를 배워보자!</h1>
+    
+    <!--table: 표를 감싸는 태그
+        tr:    표 내부의 행
+        th:    행 내부의 제목 칸
+        td:    행 내부의 일반 칸   -->
 
     <table border="1" width="150" height="150" bgcolor="sky blue"> 
         <caption>My first Table</caption>
@@ -26,6 +31,11 @@
             <td>9</td>
         </tr>
     </table>
+
+    <!-- cellspacing, cellpadding  
+        - cellspacing: border 사이의 간격(여백)
+        - cellpadding: cell(td 요소)의 내부 간격(여백)
+    -->
 
     <table border="1" cellpadding="15"cellspacing="10" align="center">
         <caption>메뉴판</caption>
@@ -52,8 +62,9 @@
 </table>
 
 <table border="1" cellspacing="0">
-    <caption>메뉴판</caption>
+    <caption> NEW 메뉴판</caption>
         <tr>
+              <!-- th 태그: 테이블의 제목 칸을 의미 (bold 체) -->
             <th>메뉴</th>
             <th>가격</th>
             <th>비고</th>
@@ -65,6 +76,7 @@
         </tr>
         <tr>
             <td>참치김밥</td>
+            <!-- rowspan: 해당 칸이 점유하는 행의 수 지정 => 2개의 row를 합치겠습니다! -->
             <td rowspan="2">4000</td>
             <td>x</td>
         </tr>
@@ -74,30 +86,193 @@
             <td>치즈추가 500원</td>
         </tr>
         <tr>
+            <!-- colspan: 해당 칸이 점유하는 열의 수 지정 => 3개의 column를 합치겠습니다! -->
             <td colspan="3">순대 (품절)</td>
         </tr>
         
+</table>
+<br>
+
+<!--과제1-->
+<!--차지하는 칸을 생각하자!-->
+
+<table border="1" cellpadding="10" collspacing="0" width="200"height="200">
+    <caption><b>colspan과 rowspan</b></caption>
+    <tr>
+        <td colspan="3">1</td>
+        <td rowspan="2">2</td>
+    </tr>
+    <tr>
+        <td rowspan="2">3</td>
+        <td>center</td>
+    </tr>
+    <tr>
+        <td colspan="4">4</td>
+    </tr>
 </table><br>
 
-<table border="1" width="300" height="400" cellspacing="0">
-    <tr>
-        <td>1</td>
-    </tr>
-    <tr>
-    <td rowspan="6">2</td>
+<!--과제2-->
+
+<table border="1" cellpadding="10" cellspacing="0">
+<caption><b>카페 음료 주문 테이블</b></caption>
+<tr>
+    <th>구분</th>
+    <th>음료</th>
+    <th>가격</th>
+    <th>이미지</th>
 </tr>
-    <tr>
-        <td colspan="4">3</td>
+<tr>
+    <td rowspan="2">커피류</td>
+    <td>아인슈페너</td>
+    <td>3500 원</td>
+    <td><a href="https://mmthcoffee.com/"></a><img src="./image/아인슈페너.PNG" alt="아인슈페너" width="200"></td>
+</tr>
+<tr>
+    <!-- <td>커피류</td> -->
+    <td>달고나 카페라떼</td>
+    <td>4800 원</td>
+    <td><a href="https://mmthcoffee.com/"></a><img src="./image/달고나라떼.PNG" alt="달고나라떼" width="200"></td>
+</tr>
+<tr>
+    <td rowspan="2">주스류</td>
+    <td>딸기 밀크쉐이크</td>
+    <td rowspan="2">4500 원</td>
+    <td><a href="https://mmthcoffee.com/"></a> <img src="./image/딸기 밀크쉐이크.PNG" alt="딸기쉐이크" width="200">
     </tr>
     <tr>
-        <td colspan="">4</td>
-     </tr>
+        <!-- <td>주스류</td> -->
+        <td>피넛버터 밀크쉐이크</td>
+        <!-- <td>4500 원</td> -->
+        <td><a href="https://mmthcoffee.com/"></a><img src="./image/피넛버터 밀크쉐이크.PNG" alt="피넛버터쉐이크" width="200"></td>
+    </tr>
 
-     <tr>
-        <td>center</td>
-     </tr>
-
+    <!-- 과제3 -->
+    <!-- 글씨(숫자)를 띄울 때는 colspan 값을 매긴 다음 align을 right로 해도 되지만 그냥 띄우고 싶은만큼 <td></td>를 쓰는 게 더 깔끔  -->
 </table>
-    
+<br>
+<table width="200" height="200">
+    <caption style="color: green;"><h2>2019년 6월</h2></caption>
+    <tr>
+        <td style="color: red;">日</td>
+        <td>月</td>
+        <td>化</td>
+        <td>水</td>
+        <td>木</td>
+        <td>金</td>
+        <td style="color: blue;">土</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td style="color: blue;">1</td>
+    </tr>
+    <tr>
+        <td style="color: red;">2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td style="color: blue;">8</td>
+    </tr>
+    <tr>
+        <td style="color: red;">9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+        <td>13</td>
+        <td>14</td>
+        <td style="color: blue;">15</td>
+    </tr>
+    <tr>
+        <td style="color: red;">16</td>
+        <td>17</td>
+        <td>18</td>
+        <td>19</td>
+        <td>20</td>
+        <td>21</td>
+        <td style="color: blue;">22</td>
+    </tr>
+    <tr>
+        <td style="color: red;">23</td>
+        <td>24</td>
+        <td>25</td>
+        <td>26</td>
+        <td>27</td>
+        <td>28</td>
+        <td style="color: blue;">29</td>
+    </tr>
+    <tr>
+        <td style="color: red;">30</td>
+     </tr>
+</table><br>
+
+<!-- 과제4 -->
+<table border="2" cellpadding="10" cellspacing="0">
+    <caption style="color: blue;"><h2>시 간 표</h2></caption>
+<tr>
+    <td></td>
+    <td style="color: red;" align="center">월</td>
+    <td style="color: red;" align="center">화</td>
+    <td style="color: red;" align="center">수</td>
+    <td style="color: red;" align="center">목</td>
+    <td style="color: red;" align="center">금</td>
+</tr>
+<tr>
+    <td style="color: green;" align="center">1교시</td>
+    <td><img src="https://m.animegoods.co.kr/web/product/big/201807/633_shop1_15321656601637.jpg" alt="도널드덕" width="50"></td>
+    <td><img src="https://www.yourwdwstore.net/cdn-cgi/image/quality%3D85/assets/images/6/60000/2000/700/62718-a1.jpg" alt="스티치" width="50"></td>
+    <td><img src="https://i.namu.wiki/i/Fie2gYV9SY2tVQXSvUCqpSU_zpD83uX1tJnCj9fcDSYaEnMItuXAiyoaFB81OGSaRGZSzIZEN5HcXNKSYS1K-w.webp" alt="엔젤" width="50"></td>
+    <td><img src="https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2020/10/15/20/0/afa084a3-4081-4884-af63-e8fc23b10485.jpg" alt="데이지" width="50"></td>
+    <td><img src="https://i.pinimg.com/236x/bc/ef/39/bcef3936f9b46c8965cfecf52279478f.jpg" alt="벅스버니" width="50"></td>
+</tr>
+<tr>
+    <td style="color: green;" align="center">2교시</td>
+    <td><img src="https://i.pinimg.com/originals/af/5a/a5/af5aa5dca324faf104a4df6ba0a67a6d.jpg" alt="트웬티" width="50"></td>
+    <td><img src="https://i.pinimg.com/236x/9c/3a/8e/9c3a8ec84979e8af371fe5d16f43a05b.jpg" alt="마리" width="50"></td>
+    <td><img src="https://mblogthumb-phinf.pstatic.net/MjAxOTEyMjdfMzYg/MDAxNTc3NDUzODE1ODc2.l1O3_Zr8LyBrujelSaw3PQNgwqMhaLo5VVOyiLsmJGwg.sbCdXUzMlG6WOYTS6ur4WAKbHJlW81PiDx5chq908SAg.JPEG.jiavoice/IMG_6584.JPG?type=w800" alt="플루토" width="50"></td>
+    <td><img src="https://mblogthumb-phinf.pstatic.net/MjAxOTEyMjdfMyAg/MDAxNTc3NDUzODA3ODEy.tZT0gNlt-bHhPLa7CAPrZ6E4_zR5DOgbOrCpzK9CWZYg.t0nzQkvYBTqeTA8-VIe1XNgr9aCEOht612BwT5eUN-Mg.JPEG.jiavoice/IMG_6586.JPG?type=w800" alt="구피" width="50"></td>
+    <td><img src="https://seitokai.uedanishi.ed.jp/wp-content/uploads/2019/03/94688acafe621c1389dcdb793469c82c.jpg" alt="칩" width="50"></td>
+</tr>
+<tr>
+    <td style="color: green;" align="center">3교시</td>
+    <td><img src="https://cdn2.colley.kr/colley_content_paragraph_73_594_1610333899358489.jpg" alt="피글렛" width="50"></td>
+    <td><img src="https://i.pinimg.com/736x/12/a0/8a/12a08afb1bd9e660dae123a1005d7f52.jpg" alt="타이거" width="50"></td>
+    <td><img src="https://res.heraldm.com/content/image/2016/10/16/20161016000026_0.jpg" alt="푸" width="50"></td>
+    <td><img src="https://mblogthumb-phinf.pstatic.net/MjAyMDAyMTJfOTMg/MDAxNTgxNDQxMTkyOTU1.sAzS39SV22nDDMbW348XEUf8VvuTMg-PZz8etCZ6Mgwg.ZEQT4_16zmy3Wo3mhDZcC2RtrHsmaTtRMWJzRKTQOCgg.JPEG.jforeverjjj/KakaoTalk_20200212_020034105_01.jpg?type=w800" alt="이요르" width="50"></td>
+    <td><img src="https://www.cartonionline.com/wordpress/wp-content/uploads/2021/10/dumbo_01.jpg" alt="덤보" width="50"></td>
+</tr>
+<tr>
+    <td style="color: green;" align="center">4교시</td>
+    <td><img src="https://i.pinimg.com/550x/75/06/be/7506be42aa6c2a059aaced1937d8b2a7.jpg" alt="백설공주" width="50"></td>
+    <td><img src="https://mblogthumb-phinf.pstatic.net/MjAxNzAxMTJfMjY0/MDAxNDg0MjE2MTEzMjAw.t-MUp0WYRhlKJBgEIBizgwcYPFV5hqXMDe82RjZbI5og.3QnXDBP-cQ7OTJRMwQWhD6XMiX_1t5FXTL7aQvE7PLQg.JPEG.d45jls1/Auroranew.jpg?type=w420" alt="오로라" width="50"></td>
+    <td><img src="https://i.pinimg.com/564x/08/7c/52/087c52878914fa73ff3518e0ca1442f6.jpg" alt="라푼젤" width="50"></td>
+    <td><img src="https://i.namu.wiki/i/vUMCzRXb3g3kwg8mfPVs0_NNqg_dMjzB65AZT-4sv_yfC9iy9t0kbRYqEhoYe26Nta2qRbf_vYqbFBS7l4W8IQ.webp" alt="신데렐라" width="50"></td>
+    <td><img src="https://i.pinimg.com/550x/47/47/63/4747638e6b36044a3eb32de895985609.jpg" alt="티아나" width="50"></td>
+</tr>
+<td colspan="6" align="center"><a href="https://www.disneyplus.com/ko-kr" target="_blank"></a><img src="https://mblogthumb-phinf.pstatic.net/20160730_235/themeparkrjd_1469836819992yhNnT_JPEG/disney-logo-the-10-best-opening-scenes-of-disney-animated-films-jpeg-156739.jpg?type=w800" alt="디즈니 로고" width="600" height="100"></td>
+<tr>
+    <td style="color: green;" align="center">5교시</td>
+    <td><img src="https://mblogthumb-phinf.pstatic.net/20110308_273/hanaplusu_1299547244817znKhG_JPEG/C0CE1321.JPG?type=w420" alt="자스민" width="50"></td>
+    <td><img src="https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/2fG8/image/v4zT6WFl7KCLDMlxbFJgBEwlfWw.jpg" alt="벨" width="50"></td>
+    <td><img src="https://i.pinimg.com/736x/46/3a/be/463abeb9579d90114425aba7074e3a78.jpg" alt="메리다" width="50"></td>
+    <td><img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA1MTZfMjU0/MDAxNDk0OTIzMzIyMTcz.pGPa8lHW8ePyluPJy8_nuSnRyJEvRJbRnjVbAOVjJFMg.U8j6HoRto61pPd1SDXJMKtBGkhT79_FGzmhTySfIxEMg.JPEG.keiovsw/%EB%AE%AC%EB%9E%8001.jpg?type=w800" alt="뮬란" width="50"></td>
+    <td><img src="https://i.pinimg.com/736x/db/62/79/db6279a3e2d959df880e249eec681dc1.jpg" alt="포카혼타스" width="50"></td>
+</tr>
+<tr>
+    <td style="color: green;" align="center">6교시</td>
+    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNvad8hGTgsxQMUGVOZXiVrVVO0eEWpMcKPehSnb2UYMaa3VK_K2CgKg8YvaFU6cBEEY4&usqp=CAU" alt="바넬로피" width="50"></td>
+    <td><img src="https://images-cdn.ubuy.co.in/635123e990ffad364645b0d9-5-inch-simba-cub-disney-the-lion-king.jpg" alt="심바" width="50"></td>
+    <td><img src="data:image/jpeg;base64,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" alt="앨리스" width="50"></td>
+    <td><img src="https://i.namu.wiki/i/5MyxTMfyf6Al1A2rLfwUhfcmJe3mIVuLluH_WzMF0Q4TdoquId5sP1rwQIGOUe4EdYR2xBPaVOHubjKgWKzvXg.webp" alt="안나" width="50"></td>
+    <td><img src="https://mblogthumb-phinf.pstatic.net/MjAxOTEyMjRfMjcg/MDAxNTc3MTcyMzg4NTg4.EJ8huZfPUDYU3f8XTCTN1gOOtndBq0tsE2ybQjHsy9Mg.RYslXLt8wHe-DNc1Kdudx_WdsJreUr0b5pHdxdMA6KAg.JPEG.sohjk12/fg.jpg?type=w800" alt="밤비" width="50"></td>
+</tr>
+</table><br><br>
+
+
 </body>
 </html>
