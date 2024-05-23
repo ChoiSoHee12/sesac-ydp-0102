@@ -1,22 +1,46 @@
 .div1 {
     width: 100px;
     height: 100px;
-    background-color: aqua;
+    background-color: aquamarine;
 }
+
+/* 
+    :hover : 요소에 마우스를 올렸을 때
+*/
 .div1:hover {
     background-color: hotpink;
     width: 150px;
     height: 150px;
 }
 
+/* 
+    :active : 요소를 마우스로 클릭하고 있을 때
+*/
 .div1:active { 
     background-color: brown;
     width: 200px;
 
 }
+
+/* 
+    :focus : 요소에 포커스가 됐을 때
+*/
 input:focus {
+    background-color: violet;
+    color: lightblue;
+    outline-color: yellowgreen; 
 
 }
+
+.Links > a:hover {
+    background-color: coral;
+}
+
+.Links > a:visited {
+    color: red;
+}
+
+
 h1:hover {
     color: red;
 } 
@@ -29,29 +53,75 @@ input:focus {
     background-color: orange;
 }
 
+* 요소 상황에 따른 가상 클래스 선택자 */
 .zoo > * {
     background-color: green;
     color: white;
 }
 
+/* 
+    #1. E:first-child : E(요소)가 첫번째 요소라면
+*/
 .zoo > *:first-child {
     background-color: red;
 }
 
+/*  
+    #2. E:last-child : E(요소)가 마지막 요소라면
+*/
 .zoo > *:last-child {
     background-color: black;
 }
 
+/*
+    #3. E:nth-child(n) : E(요소)가 n번째 요소라면
+*/
 .zoo > *:nth-child(2) {
     background-color: aqua;
 }
 
+/* 
+    #4. E:not(XYZ) : XYZ가 아닌 요소 선택
+*/
+.zoo > *:not(div) {
+    background-color: pink;
+}
 
+
+/* 실습 문제 */
 
 .stripes > * {
     background-color: navy;
     color: white;
 }
+
+.stripes > *:nth-child(2)  {
+    background-color: yellow;
+    color: navy;
+}
+
+.stripes > *:nth-child(6)  {
+    background-color: yellow;
+    color: navy;
+}
+
+.stripes > *:nth-child(10)  {
+    background-color: yellow;
+    color: navy;
+}
+
+/* 가상요소 : before, after */
+/* 
+    - HTML 문서의 특정 부분을 스타일링하기 위해 사용.
+    - 실제로 HTML 문서에 존재하지 않는 부분이지만 CSS를 통해 스타일 적용이 가능.
+
+    Q) 가상클래스 : & 가상요소 :: 차이?
+    A) CSS 사양이 발전하면서 가상클래스와 가상 요소를 명확하게 구분할 필요성이 생김.
+    가상 클래스 - 문서의 기존 요소 상태를 나타냄.
+    가상 요소 - 문서의 특정 부분을 생성하여 스타일링함.
+    그렇기에 구분하기 위해서 :: 로 표기하는 새로운 표기법을 도입.
+*/
+
 
 
 .box::before {
@@ -60,6 +130,21 @@ input:focus {
 
 .box::after {
     content: "빨리"
+}
+
+.box::before {
+    content: '택시~';
+    color: red;
+}
+
+.box::after {
+    content: "빨리!";
+    color: blue !important;
+}
+
+.box::after {
+    content: "빨리!";
+    color: green;
 }
 
 /*/ 가상 요소 가상 클래스 */
@@ -71,6 +156,16 @@ input:focus {
 [placeholder="이름"] {
     background-color: orange;
 }
+[value] {
+    background-color: blue;
+    
+}
+
+input:not([placeholder]) {
+    background-color: blue;
+}
+
+/* 선택자 종합 실습 */
 
 h3:hover {
     color: white;
@@ -81,19 +176,63 @@ textarea:focus {
     background-color: rgb(255, 234, 238);
 }
 
+/* mdn에서 checked 검색하기! 알려줌. */
+
+/* Labels for checked inputs */
+
+/* 방법1
+input:checked + label[for="red"]{
+    color: white;
+    background-color: red;
+}
+*/
+
+/* 방법2 */
+input#red:checked + label {
+    color: white;
+    background-color: red;
+}
+
 input#red:active + label {
     background-color: red;
 }
+
+/* 방법1 
+
+input:checked + label[for="blue"]{
+    color: white;
+    background-color: blue;
+}
+*/
+
+/* 방법2 */
+input#blue:checked + label {
+    color: white;
+    background-color: blue;
+}
+
 
 input#blue:active + label {
     background-color: blue;
 }
 
-input#yellow:active + label 
-{
+/* 방법1
+input:checked + label[for="yellow"]{
+    color: white;
     background-color: yellow;
 }
-button:active {
-    background-color: rgb(255, 105, 105);
+*/
+
+/* 방법2 */
+input#yellow:checked + label {
     color: white;
+    background-color: yellow;
+}
+input#yellow:active + label {
+    background-color: yellow;
+}
+
+button:active {
+    background-color: rgb(145, 145, 145);
+    color: rgb(255, 130, 130);
 }
