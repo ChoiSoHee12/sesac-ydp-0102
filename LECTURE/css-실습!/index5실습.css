@@ -1,3 +1,9 @@
+div {
+    width: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .border1 {
     border: 1px solid black;
     width: 100px; height: 100px;
@@ -6,7 +12,34 @@
 
 
 .border2 {
+    border: 15px solid black;
+    width: 100px; height: 100px;
+    border-style: solid dotted double ridge;
+}
+
+.border3 {
     border: 10px solid black;
     width: 100px; height: 100px;
-    border-style: dashed dotted double hidden;
+    border-color: black red green blue;
+}
+
+.border4 {
+    border: 10px solid black;
+    width: 100px; height: 100px;
+    border-top: 15px dashed lightsalmon;
+    border-right: 20px inset olivedrab;
+    border-bottom: 10px double skyblue;
+    border-left: 5px solid palevioletred;
+}
+
+#background {
+    text-align: center;
+    width: 200px; height: 200px;
+    border: 10px solid transparent;
+    border-radius: 50%;
+    /* border image로 gradient를 줄 수 있지만, border image와 border radius는 혼용될 수 없기 때문에 추가적인 작업을 해야 함. */
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: url(../image/짱구\ 집.webp),linear-gradient(45deg, red 60%, orange -40%, yellow -5% );
+    background-size: 200px 200px;
 }
