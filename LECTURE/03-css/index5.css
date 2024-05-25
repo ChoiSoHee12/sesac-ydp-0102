@@ -136,7 +136,7 @@ div {
     /* 이미지 없음 */
     background-image: none;
     /* 이미지 경로 */
-    background-image: url("./image/dog.jpg");
+    background-image: url(../image/4957821822574109-caaa98c6-eb0f-4d0c-976b-c782b8d4a415.jpeg);
 
     /* 이미지 반복 */
     background-repeat: repeat; /* default 값 */

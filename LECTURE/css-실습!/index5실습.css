@@ -1,0 +1,12 @@
+.border1 {
+    border: 1px solid black;
+    width: 100px; height: 100px;
+    border-width: 1px 7px 10px 30px; 
+}
+
+
+.border2 {
+    border: 10px solid black;
+    width: 100px; height: 100px;
+    border-style: dashed dotted double hidden;
+}
