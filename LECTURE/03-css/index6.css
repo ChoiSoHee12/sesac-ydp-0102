@@ -62,3 +62,36 @@ div {
     top: 0;
     right: 0;
 }
+
+
+ /* 실습 문제 */
+
+ #container {
+    border: 2px;
+    background-color: lightgray;
+    width: 500px; height: 500px;
+    position: relative;
+}
+
+#container div {
+    width: 100px; height: 100px;
+}
+
+#item1 {
+    background-color: chartreuse;
+    text-align: center;
+    position: relative;
+    top: 30px; left: 50px;
+}
+
+#item2 {
+    background-color: hotpink;
+    position: absolute;
+    right: 30px; bottom: 100px;
+}
+
+#item3 {
+    background-color: cyan;
+    position: fixed;
+    top: 500px; right: 100px;
+}
