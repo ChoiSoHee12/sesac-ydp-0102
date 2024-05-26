@@ -1,0 +1,64 @@
+.content {
+    width: 2000px;
+    height: 1000px;
+    background-color: lightgray;
+    position: relative;
+}
+
+.img {
+    width: 400px; height: 200px;
+    left: 200px;
+    transform: skewY(10deg);
+    position: absolute;
+    transition: 0.5s;
+}
+
+.spring {
+    position: absolute;
+    bottom: 500px;
+    left: 50px;
+    z-index: 4;
+}
+
+.summer {
+    position: absolute;
+    bottom: 500px;
+    left: 150px;
+    z-index: 3;
+    inde
+}
+
+.fall {
+    position: absolute;
+    bottom: 500px;
+    left: 350px;
+    z-index: 2;
+}
+    
+
+.winter {
+    position: absolute;
+    bottom: 500px;
+    left: 550px;
+    z-index: 1;
+}
+
+.spring:hover {
+    transform: skewY(0deg);
+    z-index: 5;
+}
+
+.summer:hover {
+    transform: skewY(0deg);
+    z-index: 6;
+}
+
+.fall:hover {
+    transform: skewY(0deg);
+    z-index: 7;
+}
+
+.winter:hover {
+    transform: skewY(0deg);
+    z-index: 8;
+}

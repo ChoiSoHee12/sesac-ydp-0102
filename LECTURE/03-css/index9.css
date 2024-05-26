@@ -88,7 +88,7 @@ img:hover {
 }
 
 
-/* 실습 
+/* 실습 */
 
 div {
     background-color: black;
@@ -104,5 +104,3 @@ div:hover {
     height: 300px;;
     transition: (1s, 0.5s);
 }
-
-*/
