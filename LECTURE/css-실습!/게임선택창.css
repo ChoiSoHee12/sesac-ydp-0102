@@ -9,29 +9,42 @@ body {
   
   .container {
     width: 100%;
+    height: 100%;
   }
   
   .container .Characters {
+    width: 70%;
+    margin: 80px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
   }
   
   .container .Characters .resident {
-    width: 50px;
-    height: 50px;
-    background-color: cyan;
-    border: 2px solid green;
+    width: 250px; height: 250px;
+    background-color: dodgerblue;
+    border: 10px solid white;
     border-radius: 10%;
-    transform: skew(-20deg);
-    margin: 10px;
-
+    transform: skew(-20deg) translate(400px, 200px);
+    margin: 20px;
+    position: relative;
+    transition: 2s;
   }
   
   .container .Characters .resident:hover {
+    transform: scale(2) skew(-20deg) translate(200px, 120px);
+    background-color: hotpink;
+    border: 5px solid cyan;
+    z-index: 2;
   }
   
   .container .Characters .resident .image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    display: flex;
+    justify-items: center;
+    align-items: center;
   }
   
   /* 로고 - 수정하지 않아도 됩니다. */
@@ -50,134 +63,134 @@ body {
 
   .logo img {
     position: static;
-    transform: translate(-350px, 1050px)
+    transform: translate(-350px, 250px);
   }
 
   /* 사진 넣기 작업 */
   /* 사진이 해당 경로에 없다면 경로 수정해주세요. */
   .container .Characters .resident:nth-child(1) .image {
-    background-image: url('../image/0.주민.webp');
+    background-image: url('..//image/1.나굴.webp');
   }
   
   .container .Characters .resident:nth-child(2) .image {
-    background-image: url('./images/hero2.png');
+    background-image: url('../image/2.여울.webp');
   }
   
   .container .Characters .resident:nth-child(3) .image {
-    background-image: url('./images/hero3.png');
+    background-image: url('../image/3.콩돌.webp');
   }
   
   .container .Characters .resident:nth-child(4) .image {
-    background-image: url('./images/hero4.png');
+    background-image: url('../image/4.고순이.png');
   }
   
   .container .Characters .resident:nth-child(5) .image {
-    background-image: url('./images/hero5.png');
+    background-image: url('../image/5.고숙이.webp');
   }
   
   .container .Characters .resident:nth-child(6) .image {
-    background-image: url('./images/hero6.png');
+    background-image: url('../image/6.리사.webp');
   }
   .container .Characters .resident:nth-child(7) .image {
-    background-image: url('./images/hero7.png');
+    background-image: url('../image/7.리포.webp');
   }
   
   .container .Characters .resident:nth-child(8) .image {
-    background-image: url('./images/hero8.png');
+    background-image: url('../image/8.솜이.webp');
   }
   
   .container .Characters .resident:nth-child(9) .image {
-    background-image: url('./images/hero9.png');
+    background-image: url('../image/9.다람이.png');
   }
   
   .container .Characters .resident:nth-child(10) .image {
-    background-image: url('./images/hero10.png');
+    background-image: url('../image/10.릴리.webp');
   }
   
   .container .Characters .resident:nth-child(11) .image {
-    background-image: url('./images/hero11.png');
+    background-image: url('../image/11.바닐라.webp');
   }
   
   .container .Characters .resident:nth-child(12) .image {
-    background-image: url('./images/hero12.png');
+    background-image: url('../image/12.사이다.webp');
   }
   
   .container .Characters .resident:nth-child(13) .image {
-    background-image: url('./images/hero13.png');
+    background-image: url('../image/13.애플.png');
   }
   
   .container .Characters .resident:nth-child(14) .image {
-    background-image: url('./images/hero14.png');
+    background-image: url('../image/14.글루민.png');
   }
   
   .container .Characters .resident:nth-child(15) .image {
-    background-image: url('./images/hero15.png');
+    background-image: url('../image/15.백프로.webp');
   }
   
   .container .Characters .resident:nth-child(16) .image {
-    background-image: url('./images/hero16.png');
+    background-image: url('../image/16.케찹.png');
   }
   
-  .container .Characters .hero:nth-child(17) .image {
-    background-image: url('./images/hero17.png');
+  .container .Characters .resident:nth-child(17) .image {
+    background-image: url('../image/17.베리.webp');
   }
   
   .container .Characters .resident:nth-child(18) .image {
-    background-image: url('./images/hero18.png');
+    background-image: url('../image/18.타마.png');
   }
   
   .container .Characters .resident:nth-child(19) .image {
-    background-image: url('./images/hero19.png');
+    background-image: url('../image/19.리처드.png');
   }
   
   .container .Characters .resident:nth-child(20) .image {
-    background-image: url('./images/hero20.png');
+    background-image: url('../image/20.차둘.png');
   }
   
   .container .Characters .resident:nth-child(21) .image {
-    background-image: url('./images/hero21.png');
+    background-image: url('../image/21.프랑소와.png');
   }
   
   .container .Characters .resident:nth-child(22) .image {
-    background-image: url('./images/hero22.png');
+    background-image: url('../image/22.피터.png');
   }
   
   .container .Characters .resident:nth-child(23) .image {
-    background-image: url('./images/hero23.png');
+    background-image: url('../image/23.부케.webp');
   }
   
   .container .Characters .resident:nth-child(24) .image {
-    background-image: url('./images/hero24.png');
+    background-image: url('../image/24.밥.webp');
   }
   
   .container .Characters .resident:nth-child(25) .image {
-    background-image: url('./images/hero25.png');
+    background-image: url('../image/25.아세로라.png');
   }
   
   .container .Characters .resident:nth-child(26) .image {
-    background-image: url('./images/hero26.png');
+    background-image: url('../image/30.나탈리.png');
   }
   
   .container .Characters .resident:nth-child(27) .image {
-    background-image: url('./images/hero27.png');
+    background-image: url('../image/26.초코.png');
   }
   
   .container .Characters .resident:nth-child(28) .image {
-    background-image: url('./images/hero28.png');
+    background-image: url('../image/27.플라라.png');
   }
   
   .container .Characters .resident:nth-child(29) .image {
-    background-image: url('./images/hero29.png');
+    background-image: url('../image/28.이오.png');
   }
   
   .container .Characters .resident:nth-child(30) .image {
-    background-image: url('./images/hero30.png');
+    background-image: url('../image/29..스트로베리.png');
   }
   
   .container .Characters .resident:nth-child(31) .image {
-    background-image: url('./images/hero31.png');
+    background-image: url('../image/31.실루엣.webp');
   }
   
   .container .Characters .resident:nth-child(32) .image {
-    background-image: url('./images/hero32.png');
+    background-image: url('../image/0.주민.webp');
   }
