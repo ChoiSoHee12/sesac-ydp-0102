@@ -39,9 +39,10 @@
     align-items: center;
   }
 
-  .header1 > .menus {
+  .header1 > .menus li {
     display: inline-flex;
     align-items: center;
+    padding-inline: 0px 10px;
   }
   
   /* header2 */
@@ -62,8 +63,9 @@
     align-items: center;
   }
 
-  .header3 > ul {
+  .header3 > ul li {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
+    padding-inline: 0px 20px;
   }
