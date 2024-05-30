@@ -1,0 +1,110 @@
+.container {
+    margin: 100px;
+    padding: 20px;
+
+}
+
+.heart {
+    width: 200px; height: 200px;
+    background-color: coral;
+    background: linear-gradient(rgb(255, 186, 197), white);
+    position: relative;
+    top: 50px;
+    transform: rotate(45deg);
+}
+
+.heart::before {
+    content: "";
+    width: 200px; height: 200px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: coral;
+    background: linear-gradient(rgb(255, 201, 210), white);
+    left: -50%; 
+
+}
+
+.heart::after {
+    content: "";
+    width: 200px; height: 200px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: coral;
+    background: linear-gradient(white, rgb(255, 201, 210));
+    top: -50%;    
+}
+
+.arrow1 {
+    width: 20px; height: 450px;
+    background-color: coral;
+    background: linear-gradient(rgb(255, 148, 166), white);
+    transform: rotate(-30deg) translate(210px, -220px);
+    position: relative;
+}
+
+.arrow1::before {
+    content: "";
+    width: 15px; height: 60px;
+    background-color: coral;
+    background: linear-gradient(
+        rgb(255, 79, 108), white);
+    position: absolute;
+    left: -63%; top: 88%;
+    transform: rotate(-30deg);
+}
+
+.arrow1::after {
+    content: "";
+    width: 15px; height: 60px;
+    background-color: coral;
+    background: linear-gradient(rgb(255, 91, 119), white);
+    position: absolute;
+    left: 132%; top: 87%;
+    transform: rotate(40deg);
+
+}
+
+
+.arrow1 {
+
+    animation-name: arrow;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes arrow {
+    0%{
+        transform: translate(400px, -50px); rotate: -40deg;
+    }
+    
+    75%{
+        transform: translate(80px, calc(100vh - 100px)) rotate(-40deg);
+        transition: 1s;
+    }
+    100%{
+        transform: translate(450px,-200px) rotate(-40deg);
+    }
+    
+}
+
+.heart {
+
+    animation-name: heart;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes heart {
+    0%{
+        transform: translate(400px, -50px); rotate: 40deg;
+    }
+   
+    75%{
+        transform: translate(0, calc(100vh - 100px)); rotate: 40deg;
+        transition: 1s;
+    }
+    100%{
+        transform: translate(400px, 50px); rotate: (40deg)
+    }
+    
+}
