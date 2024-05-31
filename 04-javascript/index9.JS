@@ -23,3 +23,26 @@ let str = 'Happy Birthday'
 // 64 -> 공백이 됨 ; 빈 문자도 배열로 저장.
 
 //
+
+///////////////////////////////
+// 배열 내장 메서드
+let arr = [1, 2, 3, 4, 5];
+let arr2 = [ 'quokka,', 'dog', 'koala','panda' ];
+
+//
+
+arr.push(6);
+
+//
+// -> 어차피 먄끝에 요소를 제거함.
+
+arr.pop()
+
+//
+
+arr.unshift(cat)
+
+//
+
+
+
