@@ -18,6 +18,8 @@ let gender = '여성';
 
 // 문자 + 변수를 동시에 쓰고 싶을 때
 // console.log(text + "저는 Sohee 입니다. 저의 성별은 " + gender + ' 입니다.!'); // 문자열 연결
+// ex)
+console.log(text + text2);
 // => " " / ' ' 차이 없음. +는 접착제. 붙여주는 역할.
 // -> 문자 띄어쓰기 해주고 싶으면 +를 띄우지 말고 문자에 띄어쓰기를 추가한 다음 따옴표 닫기!
 // console.log(text, text2, '야호');
