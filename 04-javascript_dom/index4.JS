@@ -94,6 +94,51 @@ console.log(tigger.previousElementSibling); // 이전
 console.log(tigger.nextElementSibling); // 다음
 console.log(tigger.nextElementSibling.nextElementSibling);
 
+// 새로운 요소 생성
+const container = document.querySelector('.container');
+const p = document.createElement('p'); // 요소 생성
+console.log(p); // js로 <p></p> 태그를 만듦.
+p.innerText = '새로 추가된 p 요소 입니다~;' 
+p.style.fontWeight = 700;
+p.style.backgroundColor ='red';
+
+// 새로 만든 요소를 추가해보자!
+// x.append(y): x 요소의 맨 마지막 자식으로 y 요소가 추가
+// x.appendChild(y)
+div1.appendChild(p);
+
+const p2 = document.createElement('p');
+const p3 = document.createElement('p');
+
+p2.innerHTML = 'p2';
+p3.innerHTML = 'p3';
+
+p2.classList.add('p-2');
+p3.classList.add('p-3');
+
+container.append(p2, p3); // 여러개 추가 가능!
+
+// x.prepend(y): x요소의 맨 처음 자식으로 y 요소가 추가
+const li1 = document.createElement('li');
+li1.textContent = "캉가";
+friends.prepend(li1);
+
+const li0 = document.createElement('li');
+li0.innerHTML = '<b>친구들을 소개합니다</b>';
+friends.prepend(li0);
+
+// 요소 삭제
+// x.remove(): x 요소 자체를 삭제
+// x.removeChild(y) : x의 자식요소인 y가 삭제
+const firstLi = document.querySelector('li');
+console.log(firstLi); // 친구들을 소개합니다 li 태그
+
+const ul = firstLi.parentNode;
+// ul.removeChild(firstLi);
+
+firstLi.remove();
+ul.remove();
+
 
 // 11 -> 형태도 그대로 가지고 옴.
 
