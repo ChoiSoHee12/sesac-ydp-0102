@@ -60,10 +60,18 @@
       // (참고) done 클래스와 todo 클래스에 대한 스타일시트는 haed > style 태그에 이미 정의되어 있습니다.
      const todo = document.querySelectorAll('.todo');
      const done = document.querySelectorAll('.done');
-     todo.setAttribute('class', 'done');
+     todo.forEach(todo => {
+      todo.classList.toggle('done')
+      todo.classList.toggle('todo')
+     });
 
+     done.forEach(done => {
+      done.classList.toggle('todo')
+      done.classList.toggle('done')
+     });
     </script>
   </body>
+
 </html>
 4 / 8
 
