@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>아이스크림 베스트 9</title>
-
+  
     <style>
       p {
         padding: 10px 20px;
@@ -71,7 +71,7 @@
 
       const section = document.querySelector("section");
       const icecreams = [
-        "내가 아인슈페너?!",
+        "내가 아인슈페너",
         "엄마는 외계인",
         "민트 초콜릿 칩",
         "뉴욕 치즈케이크",
@@ -88,7 +88,7 @@
     section.append(article);
 
     const img = document.createElement('img');
-    const imgpath = 
+    const imgpath = './image/icecreams/';
     img.src = `${imgpath}${icecreams[i]}.png`;
     img.classList.add('img-box');
 
