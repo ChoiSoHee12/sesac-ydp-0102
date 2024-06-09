@@ -3,41 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miffy House</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
-    <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light" style="background-color:coral;">
-        <div class="container-fluid">
-          <img src="./image/미피 로고에 쓸 거.png" alt="Logo" width="50" height="70" class="d-inline-block align-text-top">
-          <a class="navbar-brand" href="#">Miffy</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown link
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background-color: coral;">
+            <div class="container-fluid">
+                <img src="./image/미피 로고에 쓸 거.png" alt="Logo" width="30" height="50" class="d-inline-block align-text-top" id="logo">
+                <a class="navbar-brand" href="#">Miffy</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Friends</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cooking</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                link
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Insta</a></li>
+                                <li><a class="dropdown-item" href="#">Youtube</a></li>
+                                <li><a class="dropdown-item" href="./fanfage.html">Fan-page</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main">
+        <div class="row">
+            <div class="col-12 img-container">
+                <img src="./image/OIP.jfif" class="img-fluid" alt="미피네">
+                <div class="circle circle1"></div>
+                <div class="circle circle2"></div>
+                <div class="circle circle3"></div>
+                <img src="./image/굴뚝.png" class="roof" alt="굴뚝">
+            </div>
         </div>
-      </nav>
+    </div>
+    <img src="./image/꽃.png" class="flowers" alt="꽃">
+
+    <div class="container card-container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="./image/미피1.jpg" class="card-img-top" alt="미피 첫번째">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="./image/미피2.jpg" class="card-img-top" alt="미피 두번째">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="./image/미피3.jpg" class="card-img-top" alt="미피 세번째">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="./image/미피4.jfif" class="card-img-top" alt="미피 네번째">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="./image/미피5.jpg" class="card-img-top" alt="미피 다섯번째">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="./image/미피6.jpg" class="card-img-top" alt="미피 여섯번째">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="./image/미피7.jpg" class="card-img-top" alt="미피 일곱번째">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="./image/미피8.jpeg" class="card-img-top" alt="미피 여덟번째">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rock-container">
+    <img src="./image/잠금.png" class="rock" alt="rock">
+    <img src="./image/키.png" class="key" alt="key">
+    </div>
+
+    <footer class="footer mt-auto py-3" style="background-color: coral;">
+        <div class="container text-center">
+            <span class="text-white">© 2024 Miffy. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <!-- Add Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.dropdown-toggle').click(function(){
+                $('.dropdown-menu').toggleClass('active');
+            });
+        });
+
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                var scroll = $(window).scrollTop();
+                switch(true) {
+                    case (scroll > 1500):
+                        $('body').css('background-color', 'rgb(255, 136, 39)');
+                        break;
+                    case (scroll > 1000):
+                        $('body').css('background-color', 'rgb(255, 39, 39)');
+                        break;
+                    case (scroll > 650):
+                        $('body').css('background-color', 'rgb(32, 32, 141)');
+                        break;
+                    default:
+                        $('body').css('background-color', 'yellow');
+                        break;
+                }
+            });
+        });
+    </script>
 </body>
 </html>

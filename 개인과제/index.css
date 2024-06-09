@@ -1,0 +1,196 @@
+@font-face {
+    font-family: 'HSSanTokki20-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405@1.0/HSSanTokki20-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TTLaundryGothicB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    background-color: yellow;
+}
+
+header, nav, .navbar-brand, .nav-link {
+    font-family: 'HSSanTokki20-Regular';
+}
+
+header {
+    background-color: coral;
+    color: white;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.dropdown-item {
+    color: red;
+}
+
+.dropdown-menu.active {
+    background-color: rgb(23, 20, 179);
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    top: 200px;
+    position: relative;
+}
+
+.main img {
+    padding: 100px;
+    width: 40vw;
+    height: auto;
+}
+
+.roof {
+    position: absolute;
+    bottom: 100px;
+}
+
+@keyframes circleAnimation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(-40px); }
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    background-color: #b1b1b1;
+    border-radius: 50%;
+    position: absolute;
+    animation: circleAnimation 5s linear infinite;
+}
+
+.circle1 {
+    top: -160px;
+    left: 62%;
+    transform: translateX(-50%);
+}
+
+.circle2 {
+    top: -140px;
+    left: 60%;
+    transform: translateX(-50%);
+}
+
+.circle3 {
+    top: -110px;
+    left: 60%;
+    transform: translateX(-50%);
+}
+
+.flowers {
+    width: 120px;
+    height: auto;
+    position: absolute;
+    top: 680px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: shakeFlower 2s ease infinite;
+
+}
+
+@keyframes shakeFlower {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    25% { transform: translateX(-50%) rotate(-5deg); }
+    50% { transform: translateX(-50%) rotate(0deg); }
+    75% { transform: translateX(-50%) rotate(5deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+.card-container {
+    padding: 300px 15px;
+}
+
+.card-text {
+    font-family: 'TTLaundryGothicB';
+    color: tomato;
+}
+
+.rock-container {
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rock {
+    width: 40%;
+    height: auto;
+}
+
+.key {
+    width: 30%;
+    height: auto;
+}
+
+@keyframes rotateKey {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(90deg); }
+}
+
+.key {
+    max-width: 30%; 
+    max-height: 30%; 
+    height: auto;
+    animation: rotateKey 3s linear infinite; 
+}
+
+/* 데스크톱 화면 */
+@media only screen and (min-width: 1024px) {
+    .img-container {
+        top: 300px;
+    }
+
+    .flowers {
+        top: 780px;
+    }
+
+    .card-container {
+        padding: 350px 15px;
+    }
+}
+
+/* 태블릿 화면 */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .img-container {
+        top: 250px;
+    }
+
+    .flowers {
+        top: 750px;
+    }
+
+    .card-container {
+        padding: 250px 15px;
+    }
+}
+
+/* 스마트폰 화면 */
+@media only screen and (max-width: 767px) {
+    .img-container {
+        top: 150px;
+    }
+
+    .flowers {
+        top: 600px;
+    }
+
+    .card-container {
+        padding: 150px 15px;
+    }
+}

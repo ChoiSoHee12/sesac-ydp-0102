@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Fan-page</title>
+    <style>
+        @font-face {
+            font-family: 'HSSanTokki20-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405@1.0/HSSanTokki20-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'TTLaundryGothicB';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }   
+
+        header, nav {
+            font-family: 'HSSanTokki20-Regular';
+        }
+
+        header {
+            color: coral;
+            background-color: white;
+        }
+
+        .navbar-nav .nav-link {
+            color: coral;
+            background-color: white;
+        }
+
+        .navbar-brand {
+            color: coral;
+            background-color: white;
+        }
+
+        body {
+            background-color: rgb(255, 121, 72);
+        }
+
+        .fan-page-link {
+            color: coral;
+            font-weight: bold;
+            margin-right: 20px; /* 팬 페이지 탭의 오른쪽 여백 */
+        }
+
+        h2 {
+            font-family: 'TTLaundryGothicB';
+            color: rgb(255, 121, 72);
+        }
+
+        /* 방명록 스타일 */
+        .guestbook {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 200px; 
+            position: relative;
+        }
+
+        .guestbook-form {
+            font-family: 'TTLaundryGothicB';
+            margin-bottom: 20px;
+        }
+
+        
+        .love {
+            position: absolute;
+            top: -200px;
+            left: 100%;
+            transform: translateX(-50%);
+            transition: top 0.5s ease;
+        }
+
+        .show-love {
+            top: 0; 
+        }
+
+        .btn {
+            font-family: 'TTLaundryGothicB';
+            background-color: coral;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <img src="./image/미피 로고에 쓸 거.png" alt="Logo" width="30" height="50" class="d-inline-block align-text-top" id="logo">
+                <a class="navbar-brand" href="#">Miffy</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Friends</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cooking</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                link
+                            </a>
+                            <ul class="dropdown-menu nav-pills nav-fill" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Insta</a></li>
+                                <li><a class="dropdown-item" href="#">Youtube</a></li>
+                                <li><a class="dropdown-item" href="./fanfage.html">Fan-page</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fan-page-link" href="#">Fan-page</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 guestbook">
+                <h2>방명록</h2>
+                <form class="guestbook-form">
+                    <div class="form-group">
+                        <label for="name">이름:</label>
+                        <input type="text" class="form-control" id="name" placeholder="To.미피팬♥">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">메시지:</label>
+                        <textarea class="form-control" id="message" rows="3" placeholder="미피에게 한마디!"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">제출</button>
+                </form>
+                <img src="./image/미피 꼬옥.png" class="love" alt="cute">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        window.onload = function() {
+            document.querySelector('.love').classList.add('show-love');
+        };
+    </script>
+</body>
+</html>
