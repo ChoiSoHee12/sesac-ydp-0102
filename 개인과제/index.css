@@ -186,11 +186,34 @@ header {
         top: 150px;
     }
 
+    .main img {
+        bottom: 50px;
+    }
+        
+
     .flowers {
-        top: 600px;
+        top: 300px;
     }
 
     .card-container {
-        padding: 150px 15px;
+        padding: 150px 120px;
+    }
+
+    header, nav, .navbar-brand, .nav-link, .dropdown-item, .card-text, .main img {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .navbar-brand, .nav-link {
+        font-size: 18px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .circle {
+        width: 10px;
+        height: 10px;
     }
 }
