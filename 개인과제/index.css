@@ -151,18 +151,21 @@ header {
 }
 
 /* 데스크톱 화면 */
-@media only screen and (min-width: 1024px) {
-    .img-container {
-        top: 300px;
-    }
+@media only screen and (min-width: 1024px) {}
 
-    .flowers {
-        top: 780px;
-    }
+.circle1 {
+    top: -170px;
+    left: 890px;
+}
 
-    .card-container {
-        padding: 350px 15px;
-    }
+.circle2 {
+    top: -200px;
+    left: 890px;
+}
+
+.circle3 {
+    top: -230px;
+    left: 900px;
 }
 
 /* 태블릿 화면 */
@@ -187,33 +190,33 @@ header {
     }
 
     .main img {
-        bottom: 50px;
+        bottom: 20px;
     }
         
 
-    .flowers {
-        top: 300px;
-    }
-
-    .card-container {
-        padding: 150px 120px;
-    }
-
     header, nav, .navbar-brand, .nav-link, .dropdown-item, .card-text, .main img {
         font-size: 14px;
-        padding: 10px;
+        padding: 20px;
     }
 
     .navbar-brand, .nav-link {
         font-size: 18px;
     }
 
-    .card {
-        width: 100%;
-    }
+.circle1 {
+    top: -30px;
+}
 
-    .circle {
-        width: 10px;
-        height: 10px;
-    }
+.circle2 {
+    top: -60px;
+}
+
+.circle3 {
+    top: -90px;
+}
+
+}
+
+.card {
+    margin: 10px;
 }
