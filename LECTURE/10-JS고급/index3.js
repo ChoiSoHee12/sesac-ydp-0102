@@ -1,5 +1,45 @@
 // 클래스
 
+/** 인스턴스(instance)
+ * 인스턴스(instance)는 클래스의 구체적인 구현체를 의미합니다. 클래스는 객체를 정의하는 템플릿(또는 청사진)이고, 
+ * 인스턴스는 그 클래스를 기반으로 생성된 실제 객체 **/
+
+// 인스턴스의 예 
+    class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    introduce() {
+        return `안녕하세요, 제 이름은 ${this.name}이고, 나이는 ${this.age}살입니다.`;
+    }
+}
+
+// 1) 먼저 Person이라는 클래스를 정의함
+// 이 클래스는 사람의 이름과 나이를 속성으로 가지고, 자신을 소개하는 메서드를 포함합니다.
+
+const person1 = new Person('철수', 25);
+const person2 = new Person('영희', 30);
+
+// 2) Person 클래스의 인스턴스 생성
+
+// ㄴ> person1과 person2는 Person 클래스의 인스턴스
+//     각 인스턴스는 name과 age 속성을 가지며, introduce 메서드를 사용할 수 있음.
+
+console.log(person1.introduce()); // 출력: 안녕하세요, 제 이름은 철수이고, 나이는 25살입니다.
+console.log(person2.introduce()); // 출력: 안녕하세요, 제 이름은 영희이고, 나이는 30살입니다.
+
+
+// 요약
+// 1) 클래스 (Person): 사람의 이름과 나이를 정의하고, 자신을 소개하는 메서드를 포함하는 청사진.
+// 2) 인스턴스 (person1, person2): Person 클래스를 기반으로 생성된 실제 객체.
+//    person1은 이름이 '철수'이고, 나이가 25살인 사람.
+//    person2는 이름이 '영희'이고, 나이가 30살인 사람.
+// 3) 메서드 호출: 각 인스턴스는 introduce 메서드를 사용하여 자신을 소개할 수 있음.
+
+// ------------------------------------------------------------------------------------------ //
+
 class House {
     constructor (year, name, window){
         this.year =  year;
@@ -26,9 +66,14 @@ const house1 = new House(1990, '롯데', 1) // 클래스를 이용해서 인스�
 // 클래스의 상속
 
 class Apartment extends House{
-    constructor(year, name, window,floor,windowMaker){
-        super(year, name, window)
-        this.floor = floor;
+    // Apartment 클래스는 House 클래스를 상속 받음 (extends House).
+    // = 자식 클래스(Apartment)가 부모 클래스(House)를 기반으로 만들어질 것임
+
+    constructor(year, name, window,floor,windowMaker){ //  객체의 초기 상태
+
+        super(year, name, window) // 상위(부모) 클래스
+
+        this.floor = floor; // window 브라우저와 헷갈리지 않기 위해 '이곳'을 지정.
         this.windowMaker = windowMaker
     }
     getAptInfo() {
@@ -88,8 +133,8 @@ class Shape {
     // 1) 직사각형
 
     class Rectangle extends Shape {
-        constructor (width,height) {
-            super (width,height)
+        constructor (width,height)  {
+            super (width,height)  // 부모 클래스의 생성자를 호출하는(불러오는) 의미
 
         }
     
@@ -132,6 +177,7 @@ let rec2 = new Rectangle(6,4);
     class Circle extends Shape {
         constructor(width,height,redius) {
             super(width,height)
+            //  this.redius = redius // 부모 클래스에서 지정된 적이 없기 때문에 NaN이 나옴.
             this.redius = width
         }
 
