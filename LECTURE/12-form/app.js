@@ -1,3 +1,5 @@
+// 모듈 복습
+
 const express = require('express'); // epxress 모듈을 가져오기
 const app = express(); // express 애플리케이션 객체 생성 
 const PORT = 8888; // 서버가 실행될 포트 번호
@@ -12,7 +14,7 @@ app.set('views', './views'); // 뷰들이 위치하게 될 폴더 위치를 알�
 // ex. body-parser 모듈
 app.use(express.urlencoded({extended: true})); // urlencoded로 파싱된 body를 요청
 // -> post 요청으로 들어오는 모든 형식의 데이터를 파싱(풀어헤친다)
-app.use(express.json()); // 요청의 body 객체에 json 형태(일단은 js object와 유사한 것으로 알고 있자)로 온다
+app.use(express.json()); // 요청의 body 객체에 json 형태(일단은 js object와 유사한 것으로 알고 있자)로 온다 => 나중 부연 설명
 
 // 라우팅 (Routing) => 주소를 설정한다 
 
@@ -31,9 +33,9 @@ app.get('/getform', (req,res) => {
 app.post('/postform', (req,res) => { // url 바뀌지 않음.
     console.log((req.body)); // body-parser 미들웨어가 없으면 undefind 
     // res.send('post 요청 성공!')
-    res.render('result', { title: 'POST 요청 결과', userInfo: req.body } )
+    res.render('result', { title: 'POST 요청 결과', userInfo: req.body });
 })
-// res.send()와 res.render()위 차이
+// res.send()와 res.render()의 차이
 // res.send(): 문자열, JSON, 파일 등을 클라이언트에게 응답 (JSON을 가장 많이 응답)
 //  => 서버가 데이터를 응답할 때 send() 사용
 // res.render(): 템플릿 엔진을 사용해서 서브 측에서 "동적으로" HTML을 생성하고 클라이언트에게 응답
