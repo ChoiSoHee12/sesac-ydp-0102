@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> <%= title  %></h1>
+    <!-- <h1> <%= title  %></h1>
     <h2>GET 방식으로 요청하는 폼</h2>
     <form action="/getForm" method="get">
         <input type="text" name="id" placeholder="아이디">
@@ -18,7 +18,31 @@
     <form action="/postForm" method="post">
         <input type="text" name="id" placeholder="아이디">
         <input type="password" name="pw" placeholder="패스워드">
-        <button type="submit">POST 방식으로 폼 제출</button>
-    </form>
+         <button type="submit">POST 방식으로 폼 제출</button>  
+    </form> -->
+
+         <!-- form validation -->
+<h1> <%= title  %></h1>
+<h2>GET 방식으로 요청하는 폼</h2>
+<form action="/getForm" method="get">
+    <input type="text" name="id" placeholder="아이디 최소 3글자, 필수 값" minlength="3" required>
+    <input type="password" name="pw" placeholder="패스워드" minlength="4" required> 
+    <input type="email" name="email" placeholder="이메일 (필수 값)" required>
+    <input type="number" name="grade" placeholder="학년" min="1" max="4"> 
+    <button type="submit">GET 방식으로 폼 제출</button>
+</form>
+<!-- form validation : pattern -->
+<h2>POST 방식으로 요청하는 폼</h2>
+<form action="/postForm" method="post">
+    <input type="text" name="id" placeholder="아이디" 
+        pattern="^([a-zA-Z0-9가-힣]){4,}$" 
+        title="대소문자, 한글, 숫자, 4글자 이상" required>
+    <input type="password" name="pw" placeholder="패스워드"
+        pattern="^([a-z0-9]){8,12}$" 
+        title="소문자, 숫자로 8자리 이상 12자리 이하" required>
+        <!-- 타이틀에 작성한 게 유저에게 뜸 -->
+    <button type="submit">POST 방식으로 폼 제출</button>
+</form>
+
 </body>
-</html>
+</html> 

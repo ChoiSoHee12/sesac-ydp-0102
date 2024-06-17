@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     res.render('index',{title: '폼 실습을 해봅시다!'});
 })
 
-app.get('/getform', (req,res) => {
+app.get('/getform', (req,res) => { // 파라미터 변경됨.
     console.log(req.query); // id: 'banana' pw: '1234'
     // res.send('get 요청 성공!')
     res.render('result', { title: 'GET 요청 결과', userInfo: req.query });
