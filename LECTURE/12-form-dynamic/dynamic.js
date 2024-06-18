@@ -29,12 +29,12 @@ dynamic.post('/ajax', (req, res) => {
 
 // axios
 
-app.get('/axios', (req, res) => {
+dynamic.get('/axios', (req, res) => {
     console.log(req.query);
     res.send(req.query);
 })
 
-app.post('/axios', (req, res) => {
+dynamic.post('/axios', (req, res) => {
     console.log(req.body);
     res.send(req.body);
 })
