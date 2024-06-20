@@ -38,64 +38,82 @@
     <button type="button" onclick="ajaxPost();">ajax post 방식 요청</button>
     <button type="button" onclick="axiosGet();">axios get 방식 요청</button>
     <button type="button" onclick="axiosPost();">axios post 방식 요청</button>
+    <button type="button" onclick="fetchGet();">fetch get 방식 요청</button>
+    <button type="button" onclick="fetchPost();">fetch post 방식 요청</button>
     </form>
-<button></button>
+<button onclick="getTodos();">외부 API를 이용해 TODO 불러오기></button>
 <!-- 외부 API: 외부에서 가지고 와서 쓰겠다! ex) 날씨 정보 API, 영화 API 이런 식으로 검색. -->
     <div class="result"></div>
-
     <script>
-      function ajaxGet() {
-    console.log('click ajaxGet btn!');
+        const resultBox = document.querySelector('.result');
 
-    // 폼 선택하기
-    const form = document.forms['register'];
-
-    // 폼 요소의 값을 추출하기
-    const name = form.elements['name'].value;
-    let genderValue;
-    for (const radio of form.elements['gender']) {
-        if (radio.checked) {
-            genderValue = radio.value;
-            break;
+        function getTodos() {
+            fetch('https://jsonplaceholder.typicode.com/todos/10')
+            .then(res => res.json())
+            .then(json => {
+                console.log(json)
+                resultBox.textContent = `${json.title} (${json.completed ? 'done' : 'doing'})`
+            })
         }
-    }
 
-    // 서버로 보낼 데이터 양식 생성하기
-    const data = {
-        name: name,
-        gender: genderValue
-    };
-
-    // 쿼리 문자열 생성하기
-    const queryString = $.param(data); // $.param()은 jQuery 함수입니다.
-
-    // ajax 비동기 통신 (GET 방식)
-    $.ajax({
-        type: 'GET',
-        url: '/ajax', // 서버의 index.js 파일로 유저가 브라우저에 입력한 값을 보냄
-        data: data, // {name: name, gender: genderValue}
-        success: function (response) { 
-            console.log(response); // 서버의 응답(response)을 출력
-
-            // 결과를 표시하는 요소
-            const resultBox = document.querySelector('.result');
-            resultBox.textContent = `GET /ajax 요청에 대한 응답 완료! ${response.name}님은 ${response.gender}이시죠?ㅎㅎ`;
-            resultBox.style.color = 'blue';
-
-            // URL 업데이트
-            const newUrl = window.location.pathname + '?' + queryString; 
-            window.history.pushState({ path: newUrl }, '', newUrl);
-        },
-        error: function(error) {
-            console.log('Error:', error);
-        }
-    });
-}
-
-
+        // ============================================================== //
         
+        function ajaxGet() {
+            console.log('click ajaxGet btn!');
+
+            // 폼 선택하기
+            const form = document.forms['register'];
+
+            // 폼 요소의 값을 추출하기
+            console.dir(form);
+            console.dir(form.name);
+            console.dir(form.gender); // value 지정해야 함.
+            console.log(form.name.value); // 이름 input에 작성된 문자열
+            console.log(form.gender.value); // 성별 input이 선택된 값
+
+            // 서버로 보낼 데이터 양식 생성하기
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value
+            };
+
+            // ajax 비동기 통신 (GET 방식)
+            // (서버의 index.js 파일로 유저가 브라우저에 입력한 값을 보내기)
+            $.ajax({
+                type: 'GET',
+                url: '/ajax', // 이 요청을 받을 "서버 측 경로"
+                data, // data: data // data: { name: form.name.value, gender: form.gender.value }
+                success: function (data) { 
+                    console.log(data); // {name: '션', gender: '남자'}
+                
+
+        //         // 404 err why? : client error 
+        //         // ajax는 나한테 없는 요청을 보내고 있어!
+
+        //         // (설정 후) =>
+
+                resultBox.textContent 
+                        = `GET /ajax 요청에 대한 응답 완료! ${data.name}님은 ${data.gender}이시죠?ㅎㅎ`;
+                    resultBox.style.color = 'blue';
+                }
+
+            });
+        }
 
         // ajax 비동기 통신 (POST 방식)
+
+        function ajaxPost() {
+            console.log('click ajaxPost btn!');
+
+            // 폼 선택하기
+            const form = document.forms['register'];
+
+            // 서버로 보낼 데이터 양식 생성하기
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value
+            };
+
         $.ajax({
                 type: 'POST',
                 url: '/ajax',
@@ -108,7 +126,7 @@
                 }            
             });
 
-        
+        }
 
         // ============================================= //
 
@@ -135,7 +153,6 @@
                     = `GET /axios 요청에 대한 응답 완료! ${name}님은 ${gender}이시죠?ㅎㅎ`;
                 resultBox.style.color = 'green';
             })
-        
 
             
         

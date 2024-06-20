@@ -15,8 +15,8 @@ dynamic.get('/', (req, res) => {
 
 dynamic.get('/ajax', (req, res) => {
 // GET 방식이므로 브라우저에서 URL 쿼리까지 직접 입력해서도 값을 확인 가능
-    // 
-    // ex. http://localhost:8080/ajax?name=션&gender=남자
+    // ex. http://localhost:8000/ajax?name=%EC%95%88%EB%85%95!!&gender=%EC%97%AC%EC%9E%90
+    // ★ 개발자 도구 -> 네트워크 창에서 확인 가능
     console.log(req.query);
     res.send(req.query);
 
