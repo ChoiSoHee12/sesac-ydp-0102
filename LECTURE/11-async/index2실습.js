@@ -1,4 +1,4 @@
-function call(name) {
+function pro(name) {
     return new Promise (function(resolve) {
         setTimeout(function() {
             console.log(name);
@@ -8,17 +8,22 @@ function call(name) {
     })   
 }
 
-function back(cb) {
-    setTimeout(function() {
-        console.log('back');
-        cb('back');
-    }, 1000)
+function mise() {
+    return new Promise ((resolve) => {
+        setTimeout(function() {
+            console.log('mise');
+            resolve('mise');
+        }, 1000)
+    });
+    
 }
 
-function hell(cb) {
-    setTimeout(function() {
-        cb('callback hell');
-    }, 1000);
+function hell() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve('promise hell');
+        }, 1000);
+    });
 }
 
 call('kim', function (name) {
@@ -32,3 +37,4 @@ call('kim', function (name) {
 });
 
 // ############################################################### //
+
