@@ -1,4 +1,4 @@
-const Visitor = require('../model/visitor');
+const Visitor = require('../model/Visitor');
 
 // (1) GET / => localhost:PORT/
 exports.main = (req, res) => {
@@ -29,9 +29,20 @@ exports.postVisitor = (req, res) => {
   Visitor.postVisitor(req.body, (result) => {
     // result: rows.insertId
     console.log('controller/CVisitor.js >> ', result);
+    // controller/CVisitor.js >>  4
 
     res.send({id: result, 
       name: req.body.name, 
       comment: req.body.comment})
   });
+}
+
+exports.deleteVisitor = (req, res) => {
+  console.log(req.body);
+
+  Visitor.deleteVisitor(req.body.id, (result) => {
+    console.log('controller/CVisitor.js >> ', result);
+    
+    res.send({ result }); // { result: result }
+  })
 }
