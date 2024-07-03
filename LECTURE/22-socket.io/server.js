@@ -27,12 +27,23 @@ io.on('connection', (socket) => {
     // connection 이벤트는 클라이언트가 접속 했을 때 발생
     console.log('서버 연결 완료 :: ', socket.id);
     // socket.id : 소켓 고유 아이디 (브라우저 탭 단위)
+    // (참고) 소켓 연결 완료.
+
 })
 
-// (참고) 소켓 연결 완료.
+// [실습 1]
 
+socket.on('hello', (data) => {
+    console.log(data);
+    console.log(`${data.who} : ${data.msg}`);
+    socket.emit('hellokr', {who: 'hello', msg: '안녕!!!'})
+})
 
-
+socket.on('study', (data) => {
+    console.log(data);
+    console.log(`${data.who} : ${data.msg}`);
+    socket.emit('studyOK', {who: 'SoHee', msg: '하긴 해야지...'} )
+})
 
 server.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);

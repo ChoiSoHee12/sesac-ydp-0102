@@ -15,15 +15,47 @@
 <body>
     <h1>My Chat</h1>
 
-    <script>
-        let socket = io(); // 소켓 사용을 위한 객체 생성.
+    <!-- [실습 1] 각 버튼을 누를 때 마다 서버로 메시지 보내기 -->
+    <button onclick="sayHello()">Hello</button>
+    <button onclick="saySutdy()">Study</button>
+    <button onclick="sayBye()">Bye</button>
+    <p id="from-server"></p>
+
+
+        <script>
+        let socket = io(); 
+        // 소켓 사용을 위한 객체 생성.
+
+       
+
 
         socket.on('connect', () => {
             console.log('클라이언트 연결 완료 ::', socket.id);
             // console.log(socket);
         })
-
         // (참고) 소켓 연결 완료.
+
+
+        // [실습 1]
+        function sayHello() {
+            socket.emit('hello', {who: 'client', msg: 'hello'})
+
+        }
+
+        function saySutdy() {
+            socket.emit('study', {who: 'client', msg: 'study!'})
+        }
+
+        function sayBye() {
+            socket.emit('bye', {who: 'client', msg: 'bye!'})
+        }
+
+        socket.on('hellokr', (data) => {
+            console.log("data >> ", data); // {who: 'hello', msg: '안녕!!!'}
+            document.querySelector('#from-server').textContent = `${data.who} : ${data.msg}`
+        })
+
+        socket.on('studyOK', (data))
     </script>
 </body>
 </html>
