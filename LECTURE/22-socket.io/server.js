@@ -22,6 +22,10 @@ app.get('/', (req, res) => {
     res.render('client');
 })
 
+// [실습 3-2-1]
+// 사용자 닉네임 모음 객체
+const nickObjs = {};
+
 // io.on() : socket 관련한 통신 작업을 처리
 io.on('connection', (socket) => {
     // connection 이벤트는 클라이언트가 접속 했을 때 발생
@@ -29,20 +33,28 @@ io.on('connection', (socket) => {
     // socket.id : 소켓 고유 아이디 (브라우저 탭 단위)
     // (참고) 소켓 연결 완료.
 
-})
+    // [실습 1]
+    // socket.on('hello', (data) => {
+    //     console.log(data);
+    //     console.log(`${data.who} : ${data.msg}`);
+    //     socket.emit('hellokr', {who: 'hello', msg: '안녕!!!'})
+    // })
 
-// [실습 1]
+    // [실습 3] 채팅창 입장 안내 문구
+    io.emit('notice', `${socket.id} 님이 입장하셨습니다.`);
 
-socket.on('hello', (data) => {
-    console.log(data);
-    console.log(`${data.who} : ${data.msg}`);
-    socket.emit('hellokr', {who: 'hello', msg: '안녕!!!'})
-})
+    // [실습 3-2] 채팅창 입장 문구 socket.id -> nickname
+    // emit() from server
+    // - socket.emit(event_name, data) : 해당 클라이언트에게만 이벤트, 데이터를 전송.
+    // - io.emit(event_name, data) : 서버에 접속된 모든(all) 클라이언트 전송
+    // - io.to(소켓아이디).emit(event_name, data) : 소켓아이디에 해당하는 클라이언트 에게만 전송. (귓속말)
 
-socket.on('study', (data) => {
-    console.log(data);
-    console.log(`${data.who} : ${data.msg}`);
-    socket.emit('studyOK', {who: 'SoHee', msg: '하긴 해야지...'} )
+    socket.on('setNick', (nick) => {
+        console.log(`닉네임 설정 완료 :: ${nick} 님 입장`);
+
+        // [실습 3-2-1]
+        // 프론트에서 입력한 nick이 nickObjs 객체에 존재하는지 검사.
+    })
 })
 
 server.listen(PORT, () => {
