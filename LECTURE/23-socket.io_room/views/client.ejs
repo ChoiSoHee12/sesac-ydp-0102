@@ -57,5 +57,68 @@
             <button>입력</button>
          </form>
       </div>
+
+      <script>
+        // [1] 변수 정의
+        const socket = io();
+
+        const roomForm = document.querySelector('#room');
+        const chatForm = document.querySelector('#chat');
+        const notice = document.querySelector('#notice');
+        const message = document.querySelector('#message');
+        let myName = ''; // 내 닉네임 (빈 값)정의
+
+        // -----------------------
+        // 폼 이벤트 (서버에게 요청)
+        // -----------------------
+
+        // [2] 채팅방 생성!
+        roomForm.addEventListener('submit', (e) => {
+            console.log(e);
+            e.preventDefault(); // 폼 제출 시 페이지 새로고침 방지.
+            const roomName = roomForm.querySelector('#roomName').value; // 채팅방 제목
+            const userName = roomForm.querySelector('#userName').value; // 유저 이름
+
+            if (roomName === '' || userName === '') {
+                alert('방 제목과 닉네임을 입력하세요.');
+                return;
+            }
+
+            socket.emit('create', {roomName, userName});
+            const main = document.querySelector('#main');
+            const body = document.querySelector('#body');
+            main.hidden = true;
+            body.hidden = false;
+
+            // 전역변수에 입력한 닉네임 저장.
+            myName = userName;
+        })
+
+
+        // ------------------------
+        // 소켓 이벤트
+        // ------------------------
+
+        // [3] 공지 알림 (본인 제외)
+        socket.on('notice', (res) => {
+            const div = document.createElement('div');
+            const p = document.createElement('p');
+            console.log('notice >>> ', res);
+            p.textContent = res;
+            div.appendChild(p);
+            notice.appendChild(div);
+        })
+
+        // [4] 유저 리스트 갱신
+        socket.on('userList', (res) => {
+            console.log("클라이언트 측의 userList :: ", res);
+            const lists = document.querySelector('#userList');
+            let options = `<option value='all'>전체</option>`;
+            for (let i of res) {
+                options += `<option value='${i.key}'>${i.userName}</option>`
+            }
+            lists.innerHTML = options;
+        })
+      </script>
 </body>
-</html>
+</html> 
