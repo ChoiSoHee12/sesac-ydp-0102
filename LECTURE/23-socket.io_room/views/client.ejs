@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+        #body {
+            width: 100%;
+            height: 70vh;
+            position: relative;
+            background-color: aquamarine;
+        }
+
+        #chat {
+            position: absolute;
+            bottom: 0px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        #notice {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            color: gray;
+        }
+
+        #notice p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>채팅방</h1>
+    <!-- 채팅방 설정 -->
+     <div id="main">
+        <form id="room">
+            <input type="text" id="roomName" placeholder="채팅방 만들기">
+            <input type="text" id="userName" placeholder="사용자 이름 입력">
+            <button>생성</button>
+        </form>
+     </div>
+
+     <!-- 채팅창 화면 -->
+      <div id="body" hidden>
+        <div id="message">
+            <div id="notice"></div>
+        </div>
+        <!-- 채팅 입력 구간 -->
+         <form id="chat">
+            <select id="userList"></select>
+            <input type="text" id="chatMessage" placeholder="메시지 입력">
+            <button>입력</button>
+         </form>
+      </div>
+</body>
+</html>
