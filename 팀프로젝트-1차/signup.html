@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="./signup.css">
+</head>
+<body>
+  <!-- <h1>회원가입</h1> -->
+  <fieldset>
+    <legend></legend>
+    <form name="form_register" class="register" enctype="multipart/form-data">
+      <label for="profile_picture"></label>
+      <div class="profile-picture-container">
+        <img id="profile-preview" src="./image/프로필.jpeg" alt="Default Profile Picture" />
+      </div>
+      <input id="profile_picture" type="file" name="profile_picture" accept="image/*" onchange="previewProfilePicture()" />
+      <label for="nickname">Nickname</label>
+      <div class="nickname-container">
+        <input id="nickname" type="text" name="nickname" required />
+        <button type="button" onclick="checkDuplicateNickname()">중복 확인</button>
+      </div>
+      <p id="nickname-check-result"></p>
+      <label for="userid">ID</label>
+      <div class="id-container">
+        <input id="userid" type="id" name="userid" required />
+        <button type="button" onclick="checkDuplicateId()">중복 확인</button>
+      </div>
+      <p id="id-check-result"></p>
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" required />
+      <button type="button" onclick="register();">가입</button>
+    </form>
+    <a href="./login.html">로그인</a>    
+  </fieldset>
+  
+  <script>
+      
+    function validatePassword(password) {
+          const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+          return passwordRegex.test(password);
+    }
+    // 비밀번호 유효한지 검증 -> front & backend 둘다 적용필요
+    // 프론트엔드에서는 사용자에게 즉각적인 피드백을 제공하고, 백엔드에서는 보안을 강화하여 신뢰할 수 없는 입력을 방지  
+
+    function register() {
+      const form = document.forms['form_register'];
+      const userId = form.userid.value;
+      const password = form.password.value;
+      const nickname = form.nickname.value;
+      
+      if (!validatePassword(password)) {
+        alert('비밀번호가 유효하지 않습니다. 최소 8자 이상, 대문자, 소문자, 숫자, 특수문자를 포함해야 합니다.');
+        return; 
+      }
+      //alert문 나중에 수정필요
+
+      if (fileInput.files.length === 0) {
+        // 기본 이미지를 FormData에 추가
+        formData.append('profile_picture', 'default-profile.jpg');
+      }
+
+
+      axios({
+        method: 'POST',
+        url: '/user/signup',
+        data:{
+          userid: userId,
+          password: password,
+          nickname: nickname,
+        }
+      }).then((res)=>{
+        console.log(res);
+            editCancel();
+            window.location.href = '/user/login';
+        }).catch((error) => {
+        console.error('Error in register:', error);
+        // error는 추후 커스텀후 작성 ( 지금 당장 생각 x )
+        if (error.response && error.response.data) {
+          alert(error.response.data.message);
+        }
+      });
+    }
+
+    function editCancel() {
+      const form = document.forms['form_register'];
+      form.userid.value = '';
+      form.password.value = '';
+      form.nickname.value = '';
+    }
+    // editCancel : 원래의 빈값으로 바꿔주는 용도
+
+    
+  </script>
+</body>
+</html>
