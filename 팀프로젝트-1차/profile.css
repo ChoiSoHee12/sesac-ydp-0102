@@ -1,0 +1,70 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000; /* 배경색을 이미지와 비슷하게 설정 */
+    margin: 0;
+  }
+  
+  .container {
+    width: 100vw;
+    height: 90vh;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-link {
+    display: block;
+    margin-bottom: 10px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .home-link:hover {
+    text-decoration: underline;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+  
+  .userid {
+    font-size: 1.2em;
+    margin-right: 5px;
+  }
+  
+  .edit-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .post-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    text-align: center;
+  }

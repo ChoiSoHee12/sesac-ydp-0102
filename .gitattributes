@@ -1,0 +1,10 @@
+# 모든 텍스트 파일은 LF로 변환
+* text=auto
+
+# 특정 파일 유형은 LF로 강제 변환
+*.js text eol=lf
+*.css text eol=lf
+
+# 바이너리 파일은 변환하지 않음
+*.png binary
+*.jpg binary

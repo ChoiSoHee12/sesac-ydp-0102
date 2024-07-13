@@ -28,7 +28,7 @@ const playerModel = (sequelize, DataTypes) => {
         },
         // param3: 모델 옵션 정의
         {
-            freezeTableName: true, // 테이블 명 고정 ; 안 그러면 보통 'players' 복수형으로 지정함.
+            freezeTableName: true, // 테이블 명 고정 ; 안 그러면 보통 'players'처럼 복수형으로 지정함.
             // timestamps: false, // 데이터가 추가되고 수정된 시간을 자동으로 컬럼을 만들어서 기록
         }
     );
