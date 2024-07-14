@@ -6,23 +6,24 @@
   <link rel="stylesheet" href="./signup.css">
 </head>
 <body>
-  <!-- <h1>회원가입</h1> -->
   <fieldset>
-    <legend></legend>
+    <legend>회원가입</legend>
     <form name="form_register" class="register" enctype="multipart/form-data">
-      <label for="profile_picture"></label>
       <div class="profile-picture-container">
-        <img id="profile-preview" src="./image/프로필.jpeg" alt="Default Profile Picture" />
+        <img id="profile-preview" src="./image/프로필.jpeg" alt="Default Profile Picture" />
+        <label for="profile_picture" class="upload-icon">
+          <img src="./image/upload-icon.png" alt="Upload Icon" />
+        </label>
       </div>
       <input id="profile_picture" type="file" name="profile_picture" accept="image/*" onchange="previewProfilePicture()" />
-      <label for="nickname">Nickname</label>
       <div class="nickname-container">
+        <label for="nickname">Nickname</label>
         <input id="nickname" type="text" name="nickname" required />
         <button type="button" onclick="checkDuplicateNickname()">중복 확인</button>
       </div>
       <p id="nickname-check-result"></p>
-      <label for="userid">ID</label>
       <div class="id-container">
+        <label for="userid">ID</label>
         <input id="userid" type="id" name="userid" required />
         <button type="button" onclick="checkDuplicateId()">중복 확인</button>
       </div>
@@ -31,10 +32,21 @@
       <input id="password" type="password" name="password" required />
       <button type="button" onclick="register();">가입</button>
     </form>
-    <a href="./login.html">로그인</a>    
+    <a href="./login.html">로그인</a>
   </fieldset>
-  
   <script>
+    function previewProfilePicture() {
+      const file = document.getElementById("profile_picture").files[0];
+      const reader = new FileReader();
+
+      reader.onloadend = function () {
+        document.getElementById("profile-preview").src = reader.result;
+      }
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    }
       
     function validatePassword(password) {
           const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;

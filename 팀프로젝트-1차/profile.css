@@ -3,68 +3,112 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #000000; /* 배경색을 이미지와 비슷하게 설정 */
-    margin: 0;
+    background-color: black;
   }
   
-  .container {
-    width: 100vw;
-    height: 90vh;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .home-link {
-    display: block;
-    margin-bottom: 10px;
-    color: black;
-    text-decoration: none;
-  }
-  
-  .home-link:hover {
-    text-decoration: underline;
-  }
-  
-  .profile-header {
+  fieldset {
+    border: 1px solid #ccc;
+    padding: 40px 20px;
+    width: 400px;
+    height: auto;
+    background-color: #fff;
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+    flex-direction: column;
+    justify-content: center;
   }
   
-  .profile-header img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid #ddd;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-  }
-  
-  .userid {
+  legend {
     font-size: 1.2em;
-    margin-right: 5px;
+    padding: 0 10px;
+    font-weight: bold;
   }
   
-  .edit-icon {
+  .register {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  
+  .profile-picture-container {
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .profile-picture-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+  }
+  
+  .upload-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .upload-icon img {
     width: 20px;
     height: 20px;
   }
   
-  .post-section {
-    display: flex;
-    flex-direction: column;
+  input[type="file"] {
+    display: none;
   }
   
-  .post-item {
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    text-align: center;
+  .nickname-container, .id-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    margin-bottom: 20px;
   }
+  
+  input[type="text"], input[type="id"], input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 130px);
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #606060; 
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 120px;
+    box-sizing: border-box;
+  }
+  
+  button:hover {
+    background-color: #2f2f2f; 
+  }
+  
+  a {
+    display: block;
+    margin-top: 10px;
+    text-align: start;
+    color: black;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
