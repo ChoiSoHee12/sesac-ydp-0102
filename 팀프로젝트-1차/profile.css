@@ -41,18 +41,17 @@ body {
   }
   
   .profile-picture-container img {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 1px solid #ccc;
   }
   
   .upload-icon {
     position: absolute;
-    bottom: 0;
+    bottom: 100;
     right: 0;
     background-color: white;
-    border-radius: 50%;
     width: 30px;
     height: 30px;
     display: flex;
@@ -73,13 +72,13 @@ body {
   .nickname-container, .id-container {
     display: flex;
     align-items: center;
-    gap: 10px; 
+    gap: 10px;
     margin-bottom: 20px;
   }
   
   input[type="text"], input[type="id"], input[type="password"] {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     border-radius: 5px;
     width: calc(100% - 130px);
     box-sizing: border-box;
@@ -87,8 +86,8 @@ body {
   
   button {
     padding: 10px;
-    background-color: #606060; 
-    color: white; 
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -97,7 +96,7 @@ body {
   }
   
   button:hover {
-    background-color: #2f2f2f; 
+    background-color: #2f2f2f;
   }
   
   a {

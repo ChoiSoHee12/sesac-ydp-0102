@@ -7,16 +7,16 @@
 </head>
 <body>
   <fieldset>
-    <legend>회원가입</legend>
+    <legend></legend>
     <form name="form_register" class="register" enctype="multipart/form-data">
       <div class="profile-picture-container">
         <img id="profile-preview" src="./image/프로필.jpeg" alt="Default Profile Picture" />
         <label for="profile_picture" class="upload-icon">
-          <img src="./image/upload-icon.png" alt="Upload Icon" />
+          <img src="./image/아이콘.png" alt="Upload Icon" />
         </label>
       </div>
       <input id="profile_picture" type="file" name="profile_picture" accept="image/*" onchange="previewProfilePicture()" />
-      <div class="nickname-container">
+      <div class="nickname-container"> 
         <label for="nickname">Nickname</label>
         <input id="nickname" type="text" name="nickname" required />
         <button type="button" onclick="checkDuplicateNickname()">중복 확인</button>
@@ -47,6 +47,7 @@
         reader.readAsDataURL(file);
       }
     }
+
       
     function validatePassword(password) {
           const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -102,7 +103,6 @@
     }
     // editCancel : 원래의 빈값으로 바꿔주는 용도
 
-    
   </script>
 </body>
 </html>
