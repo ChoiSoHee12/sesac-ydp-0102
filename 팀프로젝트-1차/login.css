@@ -46,9 +46,16 @@ input[type="id"], input[type="password"] {
 }
 
 input#userid {
-  background-image: url('./image/user\ id\ 아이콘.png'); /* 아이콘 경로 설정 */
-  background-size: 15px 15px; /* 아이콘 크기 설정 */
-  background-position: 10px center; 
+  background-image: url('./image/user_id_아이콘.png'); 
+  background-size: 15px 15px; 
+  background-position: 10px center; /* 아이콘 위치 설정 */
+  background-repeat: no-repeat; /* 아이콘 반복 안함 */
+}
+
+input#password {
+  background-image: url('./image/password_아이콘.png'); 
+  background-size: 15px 15px; 
+  background-position: 10px center; /* 아이콘 위치 설정 */
   background-repeat: no-repeat; /* 아이콘 반복 안함 */
 }
 
