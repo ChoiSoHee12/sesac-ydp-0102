@@ -35,7 +35,7 @@ label {
 }
 
 input[type="id"], input[type="password"] {
-  padding: 10px;
+  padding: 10px 10px 10px 40px; /* 패딩을 조정하여 아이콘 공간 확보 */
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -43,6 +43,13 @@ input[type="id"], input[type="password"] {
   box-sizing: border-box;
   background-color: transparent;
   color: white;
+}
+
+input#userid {
+  background-image: url('./image/user\ id\ 아이콘.png'); /* 아이콘 경로 설정 */
+  background-size: 15px 15px; /* 아이콘 크기 설정 */
+  background-position: 10px center; 
+  background-repeat: no-repeat; /* 아이콘 반복 안함 */
 }
 
 button {
@@ -71,15 +78,4 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-.id-container, .password-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* 입력창과 버튼 사이를 벌려줌 */
-  width: 100%;
-}
-
-.id-container input {
-  flex-grow: 1; /* 입력창이 가로로 더 늘어남 */
 }
