@@ -1,22 +1,143 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>마이 페이지</title>
-  <link rel="stylesheet" href="./profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이 페이지</title>
+    <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-  <div class="container">
-    <a href="/user" class="home-link">HOME</a>
-    <div class="profile-header">
-      <img id="profile-preview" src="./image/프로필.jpeg" alt="Default Profile Picture" />
-      <div class="user-info">
-        <span class="userid">user1234</span>
-        <img class="edit-icon" src="./image/아이콘.png" alt="Edit Icon">
-      </div>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <button id="deleteAccountBtn">회원탈퇴</button>
+            </div>
+            <h1>마이 페이지🔖</h1>
+            <div class="profile">
+                <span id="nickname">닉네임: <span id="nicknameDisplay">User123</span></span>
+                <button id="editNicknameBtn">수정</button>
+            </div>
+        </header>
+
+        <section>
+            <h2>내가 쓴 댓글✍</h2>
+            <div id="myComments" class="comment-section">
+                <!-- 댓글 목록 -->
+                <div class="comment">댓글 1</div>
+                <div class="comment">댓글 2</div>
+                <div class="comment">댓글 3</div>
+            </div>
+            <div class="pagination">
+                <button>이전</button>
+                <button>다음</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>내가 좋아요한 댓글💓</h2>
+            <div id="likedComments" class="comment-section">
+                <!-- 좋아요 누른 댓글 목록 -->
+                <div class="comment">좋아요 댓글 1</div>
+                <div class="comment">좋아요 댓글 2</div>
+                <div class="comment">좋아요 댓글 3</div>
+            </div>
+            <div class="pagination">
+                <button>이전</button>
+                <button>다음</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>내가 좋아요한 카드💳</h2>
+            <div id="likedCards" class="card-section">
+                <!-- 좋아요 누른 카드 목록 -->
+                <div class="card">카드 1</div>
+                <div class="card">카드 2</div>
+                <div class="card">카드 3</div>
+            </div>
+            <div class="pagination">
+                <button>이전</button>
+                <button>다음</button>
+            </div>
+        </section>
     </div>
-    <div class="post-section">
-      <div class="post-item">내가 쓴 글</div>
-      <div class="post-item">좋아요 누른 글</div>
+
+    <!-- 닉네임 수정 모달 -->
+    <div id="nicknameModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>닉네임 수정</h2>
+            <input type="text" id="newNickname" placeholder="새 닉네임">
+            <button id="saveNicknameBtn">저장</button>
+        </div>
     </div>
-  </div>
+
+    <!-- 커스텀 Confirm 모달 -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3 style="color: red;">정말로 회원탈퇴를 하시겠습니까?</h3>
+            <button id="confirmYesBtn">예</button>
+            <button id="confirmNoBtn">아니오</button>
+        </div>
+    </div>
+
+    <!-- 커스텀 Alert 모달 -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>회원탈퇴가 완료되었습니다.</h2>
+            <button id="alertOkBtn">확인</button>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('editNicknameBtn').onclick = function() {
+        document.getElementById('nicknameModal').style.display = "block";
+    };
+
+    document.querySelectorAll('.close').forEach(function(element) {
+        element.onclick = function() {
+            document.getElementById('nicknameModal').style.display = "none";
+            document.getElementById('alertModal').style.display = "none";
+        };
+    });
+
+    document.getElementById('saveNicknameBtn').onclick = function() {
+        var newNickname = document.getElementById('newNickname').value;
+        if (newNickname) {
+            document.getElementById('nicknameDisplay').innerText = newNickname;
+            document.getElementById('nicknameModal').style.display = "none";
+        }
+    };
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('nicknameModal')) {
+            document.getElementById('nicknameModal').style.display = "none";
+        }
+        if (event.target == document.getElementById('confirmModal')) {
+            document.getElementById('confirmModal').style.display = "none";
+        }
+        if (event.target == document.getElementById('alertModal')) {
+            document.getElementById('alertModal').style.display = "none";
+        }
+    };
+
+    document.getElementById('deleteAccountBtn').onclick = function() {
+        document.getElementById('confirmModal').style.display = "block";
+    };
+
+    document.getElementById('confirmYesBtn').onclick = function() {
+        document.getElementById('confirmModal').style.display = "none";
+        document.getElementById('alertModal').style.display = "block";
+    };
+
+    document.getElementById('confirmNoBtn').onclick = function() {
+        document.getElementById('confirmModal').style.display = "none";
+    };
+
+    document.getElementById('alertOkBtn').onclick = function() {
+        document.getElementById('alertModal').style.display = "none";
+    };
+    </script>
+</body>
+</html>

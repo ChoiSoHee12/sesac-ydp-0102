@@ -12,7 +12,7 @@
       <form name="form_register" class="register" enctype="multipart/form-data">
         <div class="input-container">
           <div class="nickname-container">
-            <label for="nickname">닉네임</label>
+            <label for="nickname">닉네임⠀</label>
             <input id="nickname" type="text" name="nickname" placeholder="nickname" required />
             <button type="button" onclick="checkDuplicateNickname()">중복 확인</button>
           </div>
@@ -23,7 +23,7 @@
           </div>
           <p id="id-check-result"></p>
           <div class="password-container">
-            <label for="password">비밀번호</label>
+            <label for="password">비밀번호⠀</label>
             <input id="password" type="password" name="password" placeholder="password" required />
           </div>
         </div>
@@ -33,21 +33,36 @@
     </fieldset>
   </div>
   <script>
-    function previewProfilePicture() {
-      const file = document.getElementById("profile_picture").files[0];
-      const reader = new FileReader();
-      reader.onloadend = function () {
-        document.getElementById("profile-preview").src = reader.result;
-      }
-      if (file) {
-        reader.readAsDataURL(file);
-      }
-    }
-
     function validatePassword(password) {
       const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
       return passwordRegex.test(password);
     }
+    
+    function checkDuplicateNickname() {
+  const nickname = document.getElementById('nickname').value;
+  axios.post('/user/check-nickname', { nickname: nickname })
+    .then(response => {
+      // 서버로부터 받은 메시지를 팝업창으로 표시
+      alert(response.data.message);
+    })
+    .catch(error => {
+      // 오류 메시지를 팝업창으로 표시
+      alert('오류가 발생했습니다.');
+    });
+}
+
+function checkDuplicateId() {
+  const userId = document.getElementById('userid').value;
+  axios.post('/user/check-id', { userid: userId })
+    .then(response => {
+      // 서버로부터 받은 메시지를 팝업창으로 표시
+      alert(response.data.message);
+    })
+    .catch(error => {
+      // 오류 메시지를 팝업창으로 표시
+      alert('오류가 발생했습니다.');
+    });
+}
 
     function register() {
       const form = document.forms['form_register'];
