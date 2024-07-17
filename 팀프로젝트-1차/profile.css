@@ -1,3 +1,13 @@
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: -1;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #000;
@@ -7,6 +17,8 @@ body {
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   width: 80%;
   margin: auto;
   background: #111;
@@ -104,22 +116,20 @@ section {
   background: #555;
 }
 
-
 .card-section {
   display: flex; /* 카드 섹션을 가로로 배치 */
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .card {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 600px; /* 카드의 너비를 설정 */
+  height: 400px; /* 카드의 높이를 설정 */
   overflow: hidden;
-  background: #fff;
+  background: transparent;
   margin: 10px;
 }
 
@@ -184,4 +194,3 @@ section {
 .modal-content button:hover {
   background: #555;
 }
-
