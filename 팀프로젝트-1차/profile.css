@@ -124,12 +124,12 @@ section {
 
 .card {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* 카드 내부 컨텐츠 중앙 정렬 */
   align-items: center;
-  width: 150px; /* 카드의 너비를 설정 */
-  height: 150px; /* 카드의 높이를 설정 */
+  width: 300px; /* 카드의 너비를 조정 */
+  height: 200px; /* 카드의 높이를 조정 */
   overflow: hidden;
-  background: #fff;
+  background: transparent;
   margin: 10px;
 }
 

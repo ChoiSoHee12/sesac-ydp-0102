@@ -12,8 +12,7 @@ fieldset {
   border: 1px solid #ccc;
   padding: 30px;
   width: 600px;
-  height: 450px; /* 높이를 조금 늘려 더 편안한 레이아웃을 제공 */
-  height: 500px;
+  height: 450px;
   background-color: #000000;
 }
 
@@ -30,15 +29,6 @@ legend {
 
 label {
   margin-bottom: 10px;
-  width: 80px; /* 레이블 너비를 고정하여 글자가 잘리지 않도록 설정 */
-}
-
-input[type="text"], input[type="id"], input[type="password"] {
-  padding: 10px; /* 패딩을 조정하여 입력 창 크기를 조정 */
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: calc(100% - 150px); /* 너비를 레이블과 버튼에 맞게 조정 */
   width: 80px;
   margin-top: -10px; 
 }
@@ -60,20 +50,6 @@ input[type="text"], input[type="id"], input[type="password"] {
 
 .id-container, .nickname-container, .password-container {
   display: flex;
-  align-items: center; /* 버튼과 입력창의 정렬을 가운데로 */
-  gap: 10px; /* 입력창과 버튼 사이의 간격을 조정 */
-}
-
-.id-container button, .nickname-container button {
-  padding: 10px; /* 패딩을 조정하여 버튼 크기를 조정 */
-  color: rgb(255, 255, 255);
-  background-color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100px; /* 버튼 너비를 동일하게 설정 */
-  box-sizing: border-box;
-  margin-top: 0; /* 버튼과 입력창의 수직 정렬을 조정 */
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
@@ -92,7 +68,6 @@ input[type="text"], input[type="id"], input[type="password"] {
 
 .register-button {
   float: right;
-  margin-top: 30px; /* 가입 버튼과 상단 간격을 조정 */
   margin-top: 30px;
   width: 20%;
 }
@@ -102,14 +77,7 @@ input[type="text"], input[type="id"], input[type="password"] {
   text-decoration: underline;
 }
 
-#nickname, #userid, #password {
-  padding: 10px; /* 패딩을 조정하여 입력창 크기를 조정 */
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: calc(100% - 150px); /* 너비를 동일하게 설정 */
-}
-  #nickname, #userid {
+#nickname, #userid {
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -119,15 +87,12 @@ input[type="text"], input[type="id"], input[type="password"] {
 }
 
 #password {
-
-  width: calc(100% - 190px); 
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   width: calc(100% - 190px);
   box-sizing: border-box;
-
 }
 
 #nickname-check-result, #id-check-result {
