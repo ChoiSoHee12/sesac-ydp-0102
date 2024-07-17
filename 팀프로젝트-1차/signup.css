@@ -3,21 +3,24 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: white;
   background-color: black;
-  margin: 0; /* 바디의 기본 마진을 제거합니다 */
+  margin: 0;
 }
 
 fieldset {
   border: 1px solid #ccc;
-  padding: 30px; /* 상하좌우 패딩을 일정하게 조정합니다 */
-  width: 400px;
-  background-color: #fff;
+  padding: 30px;
+  width: 600px;
+  height: 450px; /* 높이를 조금 늘려 더 편안한 레이아웃을 제공 */
+  background-color: #000000;
 }
 
 legend {
-  font-size: 1.2em;
+  font-size: 2.5em;
   font-weight: bold;
-  margin-bottom: 20px; /* 범례 아래 마진을 추가합니다 */
+  margin-bottom: 20px;
+  color: white;
 }
 
 .register {
@@ -25,91 +28,92 @@ legend {
 }
 
 label {
-  margin-bottom: 10px; /* 레이블 아래 마진을 조정합니다 */
+  margin-bottom: 10px;
+  width: 80px; /* 레이블 너비를 고정하여 글자가 잘리지 않도록 설정 */
 }
 
-.profile-picture-container {
-  margin-bottom: 20px; /* 프로필 사진 컨테이너 아래 마진을 조정합니다 */
-  text-align: center;
-}
-
-.profile-picture-container img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid #ccc;
-}
-
-input[type="id"], input[type="password"], input[type="file"] {
-  padding: 10px;
-  margin-bottom: 5px;
+input[type="text"], input[type="id"], input[type="password"] {
+  padding: 10px; /* 패딩을 조정하여 입력 창 크기를 조정 */
+  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 100%;
+  width: calc(100% - 150px); /* 너비를 레이블과 버튼에 맞게 조정 */
   box-sizing: border-box;
+  background-color: transparent;
+  color: white;
 }
 
-.id-container, .nickname-container {
+.id-container, .nickname-container, .password-container {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: center; /* 버튼과 입력창의 정렬을 가운데로 */
+  gap: 10px; /* 입력창과 버튼 사이의 간격을 조정 */
 }
 
 .id-container button, .nickname-container button {
-  padding: 10px;
-  background-color: #606060;
-  color: white;
+  padding: 10px; /* 패딩을 조정하여 버튼 크기를 조정 */
+  color: rgb(255, 255, 255);
+  background-color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 20px;
-  width: 120px;
+  width: 100px; /* 버튼 너비를 동일하게 설정 */
   box-sizing: border-box;
+  margin-top: 0; /* 버튼과 입력창의 수직 정렬을 조정 */
+}
+
+.register-button {
+  float: right;
+  margin-top: 30px; /* 가입 버튼과 상단 간격을 조정 */
+  width: 20%;
 }
 
 .id-container button:hover, .nickname-container button:hover {
-  background-color: #2f2f2f;
+  background-color: black;
+  text-decoration: underline;
 }
 
-#nickname {
-  padding: 10px;
-  margin-bottom: 10px; /* 닉네임 입력칸 아래 마진을 조정합니다 */
+#nickname, #userid, #password {
+  padding: 10px; /* 패딩을 조정하여 입력창 크기를 조정 */
+  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: calc(100% - 130px); /* 입력칸 너비 조정 (버튼 너비 + 버튼과의 간격) */
+  width: calc(100% - 150px); /* 너비를 동일하게 설정 */
   box-sizing: border-box;
 }
 
-#nickname-check-result {
-  font-size: 0.9em;
-  margin-top: -10px;
-  margin-bottom: 10px;
+#password {
+  width: calc(100% - 190px); 
+}
+
+#nickname-check-result, #id-check-result {
+  font-size: 0.7em;
+  margin-bottom: 20px;
 }
 
 button {
   padding: 10px;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
-  width: 100%;
+  width: 20%;
   box-sizing: border-box;
 }
 
 button:hover {
-  background-color: #333;
+  background-color: #fdfdfd;
 }
 
 a {
   display: block;
-  margin-top: 10px;
+  margin-top: 20px;
   text-align: start;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
+
