@@ -13,6 +13,7 @@ fieldset {
   padding: 30px;
   width: 600px;
   height: 450px; /* 높이를 조금 늘려 더 편안한 레이아웃을 제공 */
+  height: 500px;
   background-color: #000000;
 }
 
@@ -38,6 +39,20 @@ input[type="text"], input[type="id"], input[type="password"] {
   border: 1px solid #ccc;
   border-radius: 5px;
   width: calc(100% - 150px); /* 너비를 레이블과 버튼에 맞게 조정 */
+  width: 80px;
+  margin-top: -10px; 
+}
+
+.input-container {
+  margin-top: 30px; 
+}
+
+input[type="text"], input[type="id"], input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 150px);
   box-sizing: border-box;
   background-color: transparent;
   color: white;
@@ -59,11 +74,27 @@ input[type="text"], input[type="id"], input[type="password"] {
   width: 100px; /* 버튼 너비를 동일하게 설정 */
   box-sizing: border-box;
   margin-top: 0; /* 버튼과 입력창의 수직 정렬을 조정 */
+=======
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.id-container button, .nickname-container button {
+  padding: 10px;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  box-sizing: border-box;
+  margin-top: -20px; /* 버튼을 더 위로 이동 */
 }
 
 .register-button {
   float: right;
   margin-top: 30px; /* 가입 버튼과 상단 간격을 조정 */
+  margin-top: 30px;
   width: 20%;
 }
 
@@ -78,11 +109,26 @@ input[type="text"], input[type="id"], input[type="password"] {
   border: 1px solid #ccc;
   border-radius: 5px;
   width: calc(100% - 150px); /* 너비를 동일하게 설정 */
+}
+  #nickname, #userid {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 150px);
   box-sizing: border-box;
 }
 
 #password {
+
   width: calc(100% - 190px); 
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 190px);
+  box-sizing: border-box;
+
 }
 
 #nickname-check-result, #id-check-result {
@@ -116,4 +162,3 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
