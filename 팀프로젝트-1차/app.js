@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const jwt = require('jsonwebtoken');// JWT 토큰을 사용하기 위해 추가 >> 예은
 const cookieParser = require('cookie-parser'); // >> 예은
-const { sequelize } = require('./models'); // Sequelize 인스턴스 가져오기
+const { sequelize } = require('./git_hub/Project/models'); // Sequelize 인스턴스 가져오기
 const PORT = process.env.PORT || 8080; // 포트를 환경 변수에서 가져오기
 
 app.use(cookieParser());
@@ -16,33 +16,28 @@ app.use('/static', express.static(__dirname + '/static'));
 // 데이터베이스 동기화
 sequelize.sync();
 
-// JWT 인증 미들웨어 >> 예은
-const authenticateToken = (req, res, next) => {
-  const token = req.cookies['token']; // 쿠키 이름 확인
-  if (token == null) {
-    req.user = null;
-    return next();
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) {
-      req.user = null;
-      return next();
-    }
-    req.user = user;
-    next();
-  });
-};
 
 // 라우팅 분리
-const userRouter = require('./routes/user');
-const commentRouter = require('./routes/comment');
+const userRouter = require('./git_hub/Project/routes/user');
+const commentRouter = require('./git_hub/Project/routes/comment');
+const indexRouter = require('./git_hub/Project/routes/index');
+const commendRouter = require('./git_hub/Project/routes/commend');
+const detailRouter = require('./git_hub/Project/routes/detail');
+const searchRouter = require('./git_hub/Project/routes/search');
+const profileRouter = require('./git_hub/Project/routes/profile');
+
+
 app.use('/user', userRouter);
-app.use('/comment', authenticateToken, commentRouter);
+app.use('/comment', commentRouter);
+app.use('/index', indexRouter);
+app.use('/commend', commendRouter);
+app.use('/detail', detailRouter);
+app.use('/search', searchRouter);
+app.use('/profile', profileRouter);
 
 
-app.get('/cardcomment', (req, res) => {
-  res.render('card_comment')
+app.get('/', (req, res) => {
+  res.render('cover')
 })
 
 // 404 에러 처리
