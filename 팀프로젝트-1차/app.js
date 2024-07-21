@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const jwt = require('jsonwebtoken');// JWT 토큰을 사용하기 위해 추가 >> 예은
 const cookieParser = require('cookie-parser'); // >> 예은
-const { sequelize } = require('./git_hub/Project/models'); // Sequelize 인스턴스 가져오기
+const { sequelize } = require('./models'); // Sequelize 인스턴스 가져오기
 const PORT = process.env.PORT || 8080; // 포트를 환경 변수에서 가져오기
 
 app.use(cookieParser());
@@ -18,13 +18,13 @@ sequelize.sync();
 
 
 // 라우팅 분리
-const userRouter = require('./git_hub/Project/routes/user');
-const commentRouter = require('./git_hub/Project/routes/comment');
-const indexRouter = require('./git_hub/Project/routes/index');
-const commendRouter = require('./git_hub/Project/routes/commend');
-const detailRouter = require('./git_hub/Project/routes/detail');
-const searchRouter = require('./git_hub/Project/routes/search');
-const profileRouter = require('./git_hub/Project/routes/profile');
+const userRouter = require('./routes/user');
+const commentRouter = require('./routes/comment');
+const indexRouter = require('./routes/index');
+const commendRouter = require('./routes/commend');
+const detailRouter = require('./routes/detail');
+const searchRouter = require('./routes/search');
+const profileRouter = require('./routes/profile');
 
 
 app.use('/user', userRouter);
@@ -35,6 +35,9 @@ app.use('/detail', detailRouter);
 app.use('/search', searchRouter);
 app.use('/profile', profileRouter);
 
+
+//정적폴더 호출은 라우팅 호출 밑으로! 
+app.use(express.static('./views/public')); 
 
 app.get('/', (req, res) => {
   res.render('cover')

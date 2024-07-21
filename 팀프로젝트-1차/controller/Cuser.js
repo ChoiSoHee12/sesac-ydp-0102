@@ -1,15 +1,12 @@
 const { User } = require('../models');
 const { hashPassword, comparePassword } = require('../utils/encrypt');
 const jwt = require('jsonwebtoken');
+const { checkLoginStatus } = require('../middleware/token'); // 변경된 부분: checkLoginStatus를 middleware에서 가져옴
 require('dotenv').config();
-
-exports.main = (req, res) => {
-    res.render('index');
-};
 
 exports.signUp = (req, res) => {
     res.render('signup');
-}
+};
 
 exports.logIn = (req, res) => {
     res.render('login');
@@ -18,21 +15,13 @@ exports.logIn = (req, res) => {
 exports.postsignUp = async (req, res) => {
     try {
         const { userid, nickname, password } = req.body;
-        // const existingUser = await User.findOne({ where: { userid } });
         const validatePassword = (password) => {
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/; // 최소 6자 이상, 영문자, 숫자, 특수문자
             return passwordRegex.test(password);
-        }
-        
+        };
         if (!validatePassword(password)) {
-            return res.status(400).send({ message: "password error"});
+            return res.status(400).send({ message: "password error" });
         }
-
-        // if (existingUser) {
-        //     return res.status(400).send({ message: 'User ID already exists' });
-        // } 이유 : model에서 이미 중복인지 아닌지 추려내고 있다.
-
-    
         const hashedPassword = await hashPassword(password);
         const newUser = await User.create({ userid, nickname, password: hashedPassword });
         res.send({ id: newUser.id, userid, nickname });
@@ -41,107 +30,97 @@ exports.postsignUp = async (req, res) => {
         res.status(500).send({ message: error.message });
     }
 };
-// 회원가입 (비밀번호 정규표현식에 맞는지-> controller / 아이디, 닉네임 중복 방지-> model에서 진행)
-// 이거에 대해서 생각해보고 공부해보길 바람... 의견을 내고 이야기한다면 좋은 주제가 될거 같다(코드 설계)
 
 exports.postlogIn = async (req, res) => {
-
-    console.log('Request Body:', req.body);
-
     try {
         const { userid, password } = req.body;
         const user = await User.findOne({ where: { userid } });
-
         if (!user) {
-            return res.status(400).send({ message: 'Invalid credentials' });
+            return res.status(400).send({ message: '존재하지 않는 아이디입니다.' });
         }
-
         const match = await comparePassword(password, user.password);
         if (!match) {
-            return res.status(400).send({ message: 'Invalid credentials' });
+            return res.status(400).send({ message: '비밀번호가 잘못 되었습니다. 비밀번호를 정확히 입력해 주세요.' });
         }
-        
-        console.log('JWT_SECRET:', process.env.JWT_SECRET);
-        // jsonwebtoken 모듈 다운후에 저장하면 된다... +
-
         const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.cookie('token', token, {
-            httpOnly: true, // 클라이언트 접근불가
-            secure: true, // HTTPS에서만 전송 / 보안상 높음
-            sameSite: 'strict', // 같은 사이트에서만 쿠키 전송
+            httpOnly: true,
+            secure: true,
+            sameSite: 'strict',
             maxAge: 3600000 // 1시간 (밀리초 기준)
         });
-
-        console.log('Token:', token); // 쿠키 제대로 사용확인 완료
         res.send({ message: '로그인 성공', token });
     } catch (error) {
-        console.error('Error in postsignIn:', error);
+        console.error('Error in postlogIn:', error); // 오타 수정 (기존: postsignIn)
         res.status(500).send({ message: error.message });
     }
 };
-//
 
 exports.logout = (req, res) => {
     try {
         res.clearCookie('token', { path: '/' });
-        // 쿠키 클리어에서 패스에 관해서 한번 생각하고 이거 수정추후 필요할수도 있음
-        res.send({ message: '로그아웃 되었습니다.' });
+        res.send({ message: '로그아웃 성공' });
     } catch (error) {
         console.error('Error in logout:', error);
         res.status(500).send({ message: '로그아웃 중 오류가 발생했습니다.' });
     }
-}; // 로그아웃은 백 : res에 로그아웃 메세지 보내기 / 프론트 : localstorage안에 있는 토큰 비우기로 역할 확실히 분담
-   // localhistory일땐 프론트에서 비우면 그만이지만, 쿠키는 서버에서 비우게 할 수 있음.... 따라서 clearCookie사용 (차이점)
+};
 
-// exports.checkToken = (req, res) => {
-//     const token = req.headers['authorization'];
-//     if (!token) {
-//         return res.status(403).send({ message: 'No token provided' });
+// 변경 전 로그인 확인 함수 - 단순히 쿠키에 토큰이 있는지 여부만 확인함
+// // 로그인 상태 확인 함수 
+// exports.checkLoginStatus = (req, res) => {
+//     if (req.cookies.token) {
+//         res.json({ isLoggedIn: true });
+//     } else {
+//         res.json({ isLoggedIn: false });
 //     }
-
-//     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-//         if (err) {
-//             console.error('Token verification failed:', err);
-//             return res.status(500).send({ message: 'Failed to authenticate token' });
-//         }
-//         req.userId = decoded.userId;
-//         res.json({ loggedin: true });
-//     });
 // };
 
-// profile전에 있는 로직 전체 확인 완료 
+// 로그인 상태 확인 함수 - middleware/token.js로 이동
+// exports.checkLoginStatus = (req, res) => {
+//     const token = req.cookies.token;
+//     if (token) {
+//         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+//             if (err) {
+//                 return res.json({ isLoggedIn: false });
+//             } else {
+//                 return res.json({ isLoggedIn: true });
+//             }
+//         });
+//     } else {
+//         return res.json({ isLoggedIn: false });
+//     }
+// };
 
-exports.postProfile = async (req, res) => {
+// 닉네임 중복 확인 함수
+exports.checkDuplicateNickname = async (req, res) => {
+    try {
+        const { nickname } = req.body;
+        const user = await User.findOne({ where: { nickname } });
+        if (user) {
+            return res.send({ message: '이미 사용중인 닉네임입니다. 다른 닉네임을 입력해주세요.', available: false });
+        }
+        res.send({ message: '사용할 수 있는 닉네임입니다.', available: true });
+    } catch (error) {
+        console.error('Error in checkDuplicateNickname:', error);
+        res.status(500).send({ message: error.message });
+    }
+};
+
+// 아이디 중복 확인 함수
+exports.checkDuplicateId = async (req, res) => {
     try {
         const { userid } = req.body;
         const user = await User.findOne({ where: { userid } });
-        res.render('profile', { data: user });
+        if (user) {
+            return res.send({ message: '이미 사용 중인 아이디입니다.', available: false });
+        }
+        res.send({ message: '사용 가능한 아이디입니다.', available: true });
     } catch (error) {
-        console.error('Error in postProfile:', error);
+        console.error('Error in checkDuplicateId:', error);
         res.status(500).send({ message: error.message });
     }
 };
 
-exports.patchProfile = async (req, res) => {
-    try {
-        const { id, pw, name } = req.body;
-        const hashedPassword = await hashPassword(pw);
-        await User.update({ pw: hashedPassword, name }, { where: { id } });
-        res.send({ message: '회원 정보가 수정되었습니다.' });
-    } catch (error) {
-        console.error('Error in patchProfile:', error);
-        res.status(500).send({ message: error.message });
-    }
-};
-
-exports.deleteProfile = async (req, res) => {
-    try {
-        const { id } = req.body;
-        await User.destroy({ where: { id } });
-        res.send({ message: '회원 정보가 삭제되었습니다.' });
-    } catch (error) {
-        console.error('Error in deleteProfile:', error);
-        res.status(500).send({ message: error.message });
-    }
-};
-
+// 로그인 상태 확인 함수 (middleware/token.js에서 가져옴)
+exports.checkLoginStatus = checkLoginStatus; // 변경된 부분
