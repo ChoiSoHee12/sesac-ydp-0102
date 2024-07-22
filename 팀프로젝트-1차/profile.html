@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이 페이지</title>
-    <link rel="stylesheet" href="profile.css">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="./profile.css"> <!-- CSS 링크 -->
 </head>
 <body>
     <div id="particles-js"></div>
@@ -16,7 +15,7 @@
             </div>
             <h1>마이 페이지🧑</h1>
             <div class="profile">
-                <span id="nickname">닉네임: <span id="nicknameDisplay">User123</span></span>
+                <span id="nickname">닉네임: <span id="nicknameDisplay"></span></span>
                 <button id="editNicknameBtn" class="icon-button">
                     <img src="./image/edit_아이콘.png" alt="edit icon">
                 </button>
@@ -26,53 +25,24 @@
         <section>
             <h2>내가 쓴 댓글✍</h2>
             <div id="myComments" class="comment-section">
-                <!-- 댓글 목록 -->
-                <div class="comment">댓글 1</div>
-                <div class="comment">댓글 2</div>
-                <div class="comment">댓글 3</div>
+                <ul id="comment-list"></ul>
             </div>
             <div class="pagination">
-                <button>이전</button>
-                <button>다음</button>
-            </div>
-        </section>
-
-        <section>
-            <h2>내가 좋아요한 댓글💓</h2>
-            <div id="likedComments" class="comment-section">
-                <!-- 좋아요 누른 댓글 목록 -->
-                <div class="comment">좋아요 댓글 1</div>
-                <div class="comment">좋아요 댓글 2</div>
-                <div class="comment">좋아요 댓글 3</div>
-            </div>
-            <div class="pagination">
-                <button>이전</button>
-                <button>다음</button>
+                <button id="prevPageBtn">이전</button>
+                <button id="nextPageBtn">다음</button>
             </div>
         </section>
 
         <section>
             <h2>내가 좋아요한 카드💳✨</h2>
-            <div id="likedCards" class="card-section">
-                <!-- 좋아요 누른 카드 목록 -->
-                <div class="card">
-                    <img src="./image/card_example.gif" alt="Card 1">
-                </div>
-                <div class="card">
-                    <img src="./image/card_example.gif" alt="Card 2">
-                </div>
-                <div class="card">
-                    <img src="./image/card_example.gif" alt="Card 3">
-                </div>
-            </div>
-            <div class="pagination">
-                <button>이전</button>
-                <button>다음</button>
-            </div>
+            <div id="likedCards" class="card-section"></div>
         </section>
+
+        <br><br>
+        <button type="button" class="logout-button" onclick="logout();">Logout</button>
     </div>
 
-    <!-- 닉네임 수정 모달 -->
+    <!-- Modal HTML -->
     <div id="nicknameModal" class="modal">
         <div class="modal-content small-modal">
             <span class="close">&times;</span>
@@ -82,7 +52,6 @@
         </div>
     </div>
 
-    <!-- 커스텀 Confirm 모달 -->
     <div id="confirmModal" class="modal">
         <div class="modal-content small-modal">
             <h3 style="color: red;">정말로 회원탈퇴를 하시겠습니까?</h3>
@@ -91,7 +60,6 @@
         </div>
     </div>
 
-    <!-- 커스텀 Alert 모달 -->
     <div id="alertModal" class="modal">
         <div class="modal-content small-modal">
             <span class="close">&times;</span>
@@ -100,171 +68,8 @@
         </div>
     </div>
 
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "triangle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    },
-                    "image": {
-                        "src": "img/github.svg",
-                        "width": 100,
-                        "height": 100
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 6,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 400,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true,
-            "config_demo": {
-                "hide_card": false,
-                "background_color": "#b61924",
-                "background_image": "",
-                "background_position": "50% 50%",
-                "background_repeat": "no-repeat",
-                "background_size": "cover"
-            }
-        });
-
-        document.getElementById('editNicknameBtn').onclick = function() {
-            document.getElementById('nicknameModal').style.display = "block";
-        };
-
-        document.querySelectorAll('.close').forEach(function(element) {
-            element.onclick = function() {
-                document.getElementById('nicknameModal').style.display = "none";
-                document.getElementById('alertModal').style.display = "none";
-            };
-        });
-
-        document.getElementById('saveNicknameBtn').onclick = function() {
-            var newNickname = document.getElementById('newNickname').value;
-            if (newNickname) {
-                document.getElementById('nicknameDisplay').innerText = newNickname;
-                document.getElementById('nicknameModal').style.display = "none";
-            }
-        };
-
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('nicknameModal')) {
-                document.getElementById('nicknameModal').style.display = "none";
-            }
-            if (event.target == document.getElementById('confirmModal')) {
-                document.getElementById('confirmModal').style.display = "none";
-            }
-            if (event.target == document.getElementById('alertModal')) {
-                document.getElementById('alertModal').style.display = "none";
-            }
-        };
-
-        document.getElementById('deleteAccountBtn').onclick = function() {
-            document.getElementById('confirmModal').style.display = "block";
-        };
-
-        document.getElementById('confirmYesBtn').onclick = function() {
-            document.getElementById('confirmModal').style.display = "none";
-            document.getElementById('alertModal').style.display = "block";
-        };
-
-        document.getElementById('confirmNoBtn').onclick = function() {
-            document.getElementById('confirmModal').style.display = "none";
-        };
-
-        document.getElementById('alertOkBtn').onclick = function() {
-            document.getElementById('alertModal').style.display = "none";
-        };
-    </script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./profile.js"></script> <!-- JavaScript 링크 -->
 </body>
 </html>
