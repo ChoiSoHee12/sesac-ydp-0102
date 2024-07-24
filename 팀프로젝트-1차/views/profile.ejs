@@ -201,10 +201,18 @@ section {
     color: #fff;
 }
 
-.small-modal {
-    width: 40%;
+.modal-content.small-modal {
+    width: 90%; /* 모바일에서도 입력창이 삐져 나오지 않도록 너비 조정 */
     max-width: 300px; /* 작은 크기 */
 }
+
+.modal-content input[type="text"] {
+    width: 100%;
+    max-width: 100%; /* 입력창이 컨테이너를 벗어나지 않도록 설정 */
+    padding: 10px;
+    box-sizing: border-box; /* 패딩 포함 너비 설정 */
+}
+
 
 .close {
     color: #aaa;
