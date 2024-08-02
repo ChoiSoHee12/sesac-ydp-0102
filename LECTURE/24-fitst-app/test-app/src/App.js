@@ -1,7 +1,9 @@
+// import logo from './logo.svg';
 import './App.css';
+import Larva from './Larva';
 
 function App() {
-  const name = 'sohee';
+  const name = 'damon';
   const student = 'sesac';
   const styles = {
     backgroundColor: 'yellow',
@@ -52,10 +54,10 @@ function App() {
           - // : jsx 외부 주석
           - {* *} : jsx 내부 주석
       */}
+      <Larva />
     </div>
     </>
   );
 }
 
 export default App;
-
