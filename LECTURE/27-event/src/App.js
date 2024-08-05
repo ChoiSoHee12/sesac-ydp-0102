@@ -13,6 +13,8 @@ function App() {
       <hr />
 
       <Counter/>
+
+      <hr />
     </div>
   );
 }
