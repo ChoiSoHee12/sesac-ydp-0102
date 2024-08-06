@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export default class Counter extends Component {
     // React 16.3 버전 이전 형태.
+    
     // constructor(props) {
     //     // 주로 초기 상태를 설정.
     //     // 'props'를 부모 컴포넌트에서 받아와 사용하기 위함.
