@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jQeury 연습</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <input type="text" placeholder="이름을 입력하세요" />
+
+    <button type="button" onclick="getValue();">버튼1</button>
+    <button type="button" onclick="setValue();">버튼2</button>
+
+    <script>
+      function getValue() {
+        let value = $("input").val();
+        alert(value);
+
+      }
+
+      function setValue() {
+        $('input').val('코딩온');
+        
+      }
+    </script>
+  </body>
+</html>

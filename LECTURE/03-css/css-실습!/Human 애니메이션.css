@@ -1,0 +1,88 @@
+.container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.human{
+    /* shape, position */
+    position: absolute;
+    border: 2px coral solid;
+    background-color: rgb(255, 179, 151);
+    
+    /* animation */
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.body{
+    /* animation */
+    animation-name: bodyMove;
+}
+#head{
+    /* shape, position */
+    width: 100px;
+    height: 100px;
+    top: 20vh;
+    left: 20vw;
+    /* radius */
+    border-radius: 50%;
+}
+#torso{
+    /* shape, position */
+    width: 100px;
+    height: 220px;
+    top: calc(20vh + 100px);
+    left: calc(20vw - 100px);
+    /* radius */
+    border-radius: 75% 25% 5% 5%;
+}
+.foot{
+    /* shape, position */
+    width: 80px;
+    height: 30px;
+    /* radius */
+    border-radius: 20px 75% 15px 15px;
+    /* animation */
+    animation-timing-function: linear;
+}
+#lfoot{
+    /* shape, position */
+    top: calc(20vh + 500px);
+    left: calc(20vw - 100px);
+    /* animation */
+    animation-name: lfootMove;
+
+}#rfoot{
+    top: calc(20vh + 500px);
+    left: calc(20vw - 20px);
+    /* animation */
+    animation-name: rfootMove;
+}
+@keyframes bodyMove {
+    50%{
+        transform: translateY(30px) skewX(3deg);
+        transform-origin: bottom;
+    }
+}
+@keyframes lfootMove {
+    20%{
+        transform: translate3d(40px,-70px,0);
+    }
+    40%{
+        transform: translate3d(60px,-40px,0);
+    }
+    50%{
+        transform: translate3d(80px,0,0);
+    }
+}
+@keyframes rfootMove {
+    50%{
+        transform: translate3d(-80px,0,0);
+    }
+    70%{
+        transform: translate3d(-40px,-70px,0);
+    }
+    90%{
+        transform: translate3d(-20px,-40px,0);
+    }
+}
