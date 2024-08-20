@@ -110,7 +110,7 @@ function Practice() {
         <button onClick={handleSearchAll}>전체</button>
       </div>
       <table
-        border="1"
+        border="3"
         cellPadding="10"
         cellSpacing="1"
         style={{ margin: "10px" }}
